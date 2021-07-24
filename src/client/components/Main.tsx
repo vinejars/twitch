@@ -1,10 +1,12 @@
 import * as React from 'react';
+import Nav from './Nav'
 
 
 export default function Main() {
     return (
         <div>
-            <h1>howdy</h2>
+        <Nav/>
+            <h1>howdy</h1>
         </div>
     )
 }

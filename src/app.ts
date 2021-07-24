@@ -1,5 +1,6 @@
 import express , {Application, Request, Response, NextFunction} from 'express'
 import path from 'path'
+import {db} from "./server/db/index"
 
 
 
@@ -26,6 +27,16 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-app.listen(PORT, ()=>{
-    console.log(`Twitchin' around on port ${PORT}`)
-})
+const init = async () => {
+  try {
+   //console.log('db: ', db)
+    await db.sync();
+    app.listen(PORT, () =>
+      console.log(` Twitchin' around on port ${PORT}`)
+    );
+  } catch (err) {
+    console.log(`There was an error starting up :/ `, err);
+  }
+};
+
+init();

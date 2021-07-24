@@ -1,5 +1,10 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './components/Main'
+import Routes from './components/Routes'
+import {Router} from 'react-router-dom'
+import history from './history'
 
-ReactDOM.render(<Main/>, document.getElementById('app'));
+ReactDOM.render(
+<Router history={history}>
+<Routes/>
+</Router>, document.getElementById('app'));
