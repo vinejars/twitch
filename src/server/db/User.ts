@@ -82,8 +82,17 @@ const user= db.define<UserInstance>('user',
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
+        },
+        aboutMe: {
+            type: DataTypes.TEXT
+        }, 
+        faveChar: {
+            type: DataTypes.STRING
+        },
+        faveBook: {
+            type: DataTypes.STRING
         }
-    },
+    }
 )
 
 export default user

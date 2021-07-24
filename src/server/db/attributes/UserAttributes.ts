@@ -8,6 +8,12 @@ export interface UserAttributes {
 
   username: string;
 
+  aboutMe: string | null;
+
+  faveBook: string | null;
+
+  faveChar: string | null;
+
   readonly 'createdAt'?: Date;
 
   readonly 'updatedDate'?: Date;

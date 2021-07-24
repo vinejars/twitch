@@ -1,11 +1,13 @@
 import express , {Application, Request, Response, NextFunction} from 'express'
 import path from 'path'
 import {db} from "./server/db/index"
+import HttpException from './errorhandling'
+const PORT = 8409
 
 
 
 const app: Application = express()
-const PORT = 8409
+export default app;
 
 app.use(express.json());
 
@@ -40,3 +42,9 @@ const init = async () => {
 };
 
 init();
+
+app.use((err: HttpException, req: Request, res: Response, next: NextFunction) => {
+  console.error(err, typeof next);
+  console.error(err.stack);
+  res.status(err.status || 500).send(err.message || 'Internal server error.');
+});
