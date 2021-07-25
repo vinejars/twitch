@@ -4,7 +4,6 @@ import {
   Model,
   Optional,
 } from 'sequelize';
-import {UserAttributes} from './attributes/UserAttributes'
 import {PostAttributes} from './attributes/PostAttributes'
 import db from "./db"
 

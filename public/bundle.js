@@ -10097,7 +10097,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* Navbar styling */\n\n#navcontain{\n    display:flex;\n    flex-direction: row;\n    align-content: space-around;\n    justify-items: center;\n}\n\n*{\n    background-color: red;\n}", "",{"version":3,"sources":["webpack://./src/client/styles.css"],"names":[],"mappings":"AAAA,mBAAmB;;AAEnB;IACI,YAAY;IACZ,mBAAmB;IACnB,2BAA2B;IAC3B,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":["/* Navbar styling */\n\n#navcontain{\n    display:flex;\n    flex-direction: row;\n    align-content: space-around;\n    justify-items: center;\n}\n\n*{\n    background-color: red;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* Navbar styling */\n/* \n#navcontain{\n    display:flex;\n    flex-direction: row;\n    align-content: space-around;\n    justify-items: center;\n}\n\n*{\n    background-color: gray;\n} */", "",{"version":3,"sources":["webpack://./src/client/styles.css"],"names":[],"mappings":"AAAA,mBAAmB;AACnB;;;;;;;;;;GAUG","sourcesContent":["/* Navbar styling */\n/* \n#navcontain{\n    display:flex;\n    flex-direction: row;\n    align-content: space-around;\n    justify-items: center;\n}\n\n*{\n    background-color: gray;\n} */"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45132,10 +45132,10 @@ function warning(condition, message) {
 
 /***/ }),
 
-/***/ "./src/client/components/LoginSignup.tsx":
-/*!***********************************************!*\
-  !*** ./src/client/components/LoginSignup.tsx ***!
-  \***********************************************/
+/***/ "./src/client/components/Login.tsx":
+/*!*****************************************!*\
+  !*** ./src/client/components/Login.tsx ***!
+  \*****************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -45145,11 +45145,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-function LoginSignup() {
+function Login() {
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement("h2", null, " this is the login page ")));
+        react_1.default.createElement("h1", null, " hi ")));
 }
-exports.default = LoginSignup;
+exports.default = Login;
 
 
 /***/ }),
@@ -45226,9 +45226,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function Nav() {
     return (React.createElement("div", { id: 'navcontain' },
-        React.createElement("h2", null, " Test One "),
+        React.createElement(react_router_dom_1.Link, { to: '/login' },
+            React.createElement("h2", null, " Login ")),
+        React.createElement(react_router_dom_1.Link, { to: '/signup' },
+            React.createElement("h2", null, " Signup ")),
         React.createElement("h3", null, " Test Two "),
         React.createElement("h4", null, " Test Three ")));
 }
@@ -45271,35 +45275,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const Main_1 = __importDefault(__webpack_require__(/*! ./Main */ "./src/client/components/Main.tsx"));
-const LoginSignup_1 = __importDefault(__webpack_require__(/*! ./LoginSignup */ "./src/client/components/LoginSignup.tsx"));
+const Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./src/client/components/Login.tsx"));
 __webpack_require__(/*! ../styles.css */ "./src/client/styles.css");
-class Routes extends React.Component {
-    render() {
-        return (React.createElement("div", null,
+function Routes() {
+    return (React.createElement(react_router_dom_1.HashRouter, null,
+        React.createElement("div", null,
             React.createElement(react_router_dom_1.Switch, null,
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: Main_1.default }),
-                React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: LoginSignup_1.default }))));
-    }
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: Login_1.default })))));
 }
 exports.default = Routes;
-
-
-/***/ }),
-
-/***/ "./src/client/history.ts":
-/*!*******************************!*\
-  !*** ./src/client/history.ts ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const history_1 = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
-const history =  false
-    ? 0
-    : history_1.createBrowserHistory();
-exports.default = history;
 
 
 /***/ }),
@@ -45338,10 +45323,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 const Routes_1 = __importDefault(__webpack_require__(/*! ./components/Routes */ "./src/client/components/Routes.tsx"));
-const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-const history_1 = __importDefault(__webpack_require__(/*! ./history */ "./src/client/history.ts"));
-react_dom_1.default.render(React.createElement(react_router_dom_1.Router, { history: history_1.default },
-    React.createElement(Routes_1.default, null)), document.getElementById('app'));
+//import { Provider } from 'react-redux';
+//import store from './store/store'
+//import firebase from '../firebase/config'
+react_dom_1.default.render(
+//<Provider store={store}>
+React.createElement(Routes_1.default, null)
+//</Provider>
+, document.getElementById('app'));
 
 
 /***/ }),

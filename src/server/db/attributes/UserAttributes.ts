@@ -2,17 +2,13 @@
 export interface UserAttributes {
   id: number;
 
-  firebaseID: string;
+  firebaseID: string | null;
 
   email: string;
 
   username: string;
 
-  aboutMe: string | null;
 
-  faveBook: string | null;
-
-  faveChar: string | null;
 
   readonly 'createdAt'?: Date;
 

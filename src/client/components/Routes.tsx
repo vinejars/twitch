@@ -1,21 +1,23 @@
 import * as React from 'react'
-import {Route, Switch } from 'react-router-dom'
+import {HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Main from './Main'
-import LoginSignup from './LoginSignup'
+import Signup from './Signup'
+import Login from './Login'
 import '../styles.css'
 
 
 
-
-export default class Routes extends React.Component {
-    render() {
-        return (
+export default function Routes() {
+    return (
+             <Router>
             <div>
               <Switch>
               <Route exact path="/" component={Main} />
-              <Route exact path="/login" component={LoginSignup} />
+              <Route exact path="/login" component={Login} />
+              {/* <Route exact path='/signup' component={Signup}/> */}
               </Switch>  
             </div>
-        )
-    }
+            </Router> 
+    )
 }
+

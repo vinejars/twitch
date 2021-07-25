@@ -1,10 +1,14 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './components/Routes'
-import {Router} from 'react-router-dom'
-import history from './history'
+
+//import { Provider } from 'react-redux';
+//import store from './store/store'
+//import firebase from '../firebase/config'
+
 
 ReactDOM.render(
-<Router history={history}>
+//<Provider store={store}>
 <Routes/>
-</Router>, document.getElementById('app'));
+//</Provider>
+, document.getElementById('app'));
