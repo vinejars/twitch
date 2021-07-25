@@ -7,9 +7,7 @@ export default function Nav() {
         <div id='navcontain'>
         <Link to='/login'><h2> Login </h2></Link>
         <Link to='/signup'><h2> Signup </h2></Link>
-
-        <h3> Test Two </h3>
-        <h4> Test Three </h4>
+        {/* <Link to='/'><h2>My Page </h2></Link> */}
         </div>
     )
 }

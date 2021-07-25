@@ -7,21 +7,21 @@ const seed = async() =>{
     //Users
 
 const anna = await User.create({
-    id: 1,
+    id: 'jfdaohof',
     firebaseID: null,
     email: 'annabanana@email.com',
     username: 'samwiseuporelse',
 })
 
 const quinn = await User.create({
-    id: 2,
+    id: 'dfnaodshfla',
     firebaseID: null,
     email: 'radagastrapunzel@email.com',
     username: 'celebornthisway',
 })
 
 const em = await User.create({
-    id: 3,
+    id: 'dioafhdao',
     firebaseID: null,
     email: 'skazzmatter@email.com',
     username: 'f00lofat00k',

@@ -19,7 +19,7 @@ interface UserInstance
 const user= db.define<UserInstance>('user', 
     {
         id:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             primaryKey: true,
             allowNull: false,
         },

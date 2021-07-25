@@ -1,6 +1,6 @@
 
 export interface UserAttributes {
-  id: number;
+  id: string;
 
   firebaseID: string | null;
 
