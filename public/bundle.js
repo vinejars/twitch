@@ -45132,6 +45132,28 @@ function warning(condition, message) {
 
 /***/ }),
 
+/***/ "./src/client/components/LoginSignup.tsx":
+/*!***********************************************!*\
+  !*** ./src/client/components/LoginSignup.tsx ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+function LoginSignup() {
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement("h2", null, " this is the login page ")));
+}
+exports.default = LoginSignup;
+
+
+/***/ }),
+
 /***/ "./src/client/components/Main.tsx":
 /*!****************************************!*\
   !*** ./src/client/components/Main.tsx ***!
@@ -45249,12 +45271,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const Main_1 = __importDefault(__webpack_require__(/*! ./Main */ "./src/client/components/Main.tsx"));
+const LoginSignup_1 = __importDefault(__webpack_require__(/*! ./LoginSignup */ "./src/client/components/LoginSignup.tsx"));
 __webpack_require__(/*! ../styles.css */ "./src/client/styles.css");
 class Routes extends React.Component {
     render() {
         return (React.createElement("div", null,
             React.createElement(react_router_dom_1.Switch, null,
-                React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: Main_1.default }))));
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: Main_1.default }),
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: LoginSignup_1.default }))));
     }
 }
 exports.default = Routes;
