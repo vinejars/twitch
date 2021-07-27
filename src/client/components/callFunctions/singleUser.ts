@@ -2,7 +2,12 @@ import {User} from '../../../server/db/index'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
-
+export type UserType = {
+    id?: string,
+    email?: string,
+    username?: string,
+    firebaseID?: string
+} 
 
 //function to retrieve a single user from database
 export const getSingleUser = async function(id: string){

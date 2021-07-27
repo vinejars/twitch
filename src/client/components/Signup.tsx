@@ -31,7 +31,7 @@ const Signup: React.FunctionComponent<SignupProps> = (props) => {
 				createUser(username, email, result.user.uid);
 			  const loggedUser = await getSingleUser(result.user.uid);
 			  props.setUser(loggedUser)
-			  history.push(`/${result.user.uid}`);
+			  history.push(`/user/${result.user.uid}`);
 			})
 			.catch((error) => {
 				console.log(error);

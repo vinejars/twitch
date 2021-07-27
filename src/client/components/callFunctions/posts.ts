@@ -1,26 +1,31 @@
 import axios from 'axios'
 
-let counter:number = 1;
+export type PostType = {
+    id?: number;
+    text?: string;
+    imageUrl?: string;
+    userId?: string
+}
+
+
 
 export async function createPost(userId: string, imageUrl: string, text: string){
 try {
-      counter = 900
-      await axios.post('/api/post', { userId, imageUrl, text, counter})
+      await axios.post('/api/post', { userId, imageUrl, text})
   } catch (error) {
       console.log(error)
   }
 }
 
-export async function getPosts(userId:string){
+export const getPosts = async function(userId:string){
     try {
-      console.log('2. im here')
-        const { posts } = await axios.get('/api/allposts',{
-      headers: {
-        id: userId
-      }
-    })
+        let posts: Array<PostType> = [{}]
+        await axios.get(`/api/allposts/${userId}`)
+  .then((response) => { posts = response.data })
+  console.log(posts)
     return posts
     } catch (error) {
         console.log(error)
+        return null;
     }
 }

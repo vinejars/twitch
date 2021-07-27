@@ -5,7 +5,7 @@ import { User, db, Post, ProfileInfo } from '../db/index'
 //GET ROUTES
 
 //route to get single user's info for profile page
-router.get('/:userId', async(req: Request, res: Response, next: NextFunction)=>{
+router.get('/user/:userId', async(req: Request, res: Response, next: NextFunction)=>{
     try {
         const user = await User.findByPk(req.params.userId, {
       include: [ProfileInfo]
@@ -17,13 +17,11 @@ router.get('/:userId', async(req: Request, res: Response, next: NextFunction)=>{
 })
 
 
-router.get('/allposts', async(req: Request, res: Response, next: NextFunction)=>{
+router.get('/allposts/:userId', async(req: Request, res: Response, next: NextFunction)=>{
     try {
-        console.log('3. im here')
         const posts = await Post.findAll({
-        where: {userId: req.params.id}
+        where: {userId: req.params.userId}
         })
-        console.log(posts)
         res.json(posts)
     } catch (error) {
        next(error) 

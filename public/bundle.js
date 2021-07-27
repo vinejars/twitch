@@ -75282,14 +75282,14 @@ const MainNav = (props) => {
             .catch((error) => {
             console.log(error);
         });
-        props.setUser(null);
+        props.setUser({ id: undefined, email: undefined, username: undefined, firebaseID: undefined });
         history.push('/login');
     };
     return (react_1.default.createElement("div", null,
         react_1.default.createElement("nav", { id: 'navcontain' },
-            react_1.default.createElement(react_router_dom_1.Link, { to: '/allPhotos' }, " Feed "),
+            react_1.default.createElement(react_router_dom_1.Link, { to: '/gallery' }, " The Fellowship Feed "),
             react_1.default.createElement(react_router_dom_1.Link, { to: '/add' }, " Add Post "),
-            react_1.default.createElement(react_router_dom_1.Link, { to: '/gallery' }, " My Journey "),
+            react_1.default.createElement(react_router_dom_1.Link, { to: `/user/${props.user.id}` }, " My Journey "),
             react_1.default.createElement("button", { onClick: logout }, " Logout "))));
 };
 exports.default = MainNav;
@@ -75342,7 +75342,9 @@ const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./sr
 const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
 const ProfilePage = (props) => {
-    const [posts, setPosts] = react_1.useState([]);
+    const [posts, setPosts] = react_1.useState(null);
+    const [loading, setLoading] = react_1.useState(true);
+    let render = '';
     function grabUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const loggedInUser = yield singleUser_1.getSingleUser(id);
@@ -75351,22 +75353,25 @@ const ProfilePage = (props) => {
     }
     function grabPosts(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('1. im here');
-            const posts = yield posts_1.getPosts(id);
-            setPosts(posts);
+            const gotPosts = yield posts_1.getPosts(id);
+            if (!posts) {
+                setPosts(gotPosts);
+                console.log('gotposts: ', posts);
+            }
         });
     }
     react_1.useEffect(() => {
         if (!props.user.username) {
             grabUser(window.localStorage.id);
+            grabPosts(window.localStorage.id);
+            setLoading(false);
         }
     });
-    react_1.useEffect(() => __awaiter(void 0, void 0, void 0, function* () {
-        grabPosts(window.localStorage.id);
-    }), []);
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
-        react_1.default.createElement("h1", null, " Can We See This?")));
+        !posts ? (react_1.default.createElement("h1", null, " hi ")) : (react_1.default.createElement("div", null, posts.map((post) => (react_1.default.createElement("div", { key: post.id },
+            react_1.default.createElement("img", { src: post.imageUrl }),
+            react_1.default.createElement("p", null, post.text))))))));
 };
 exports.default = ProfilePage;
 
@@ -75501,7 +75506,7 @@ const Signup = (props) => {
             singleUser_1.createUser(username, email, result.user.uid);
             const loggedUser = yield singleUser_1.getSingleUser(result.user.uid);
             props.setUser(loggedUser);
-            history.push(`/${result.user.uid}`);
+            history.push(`/user/${result.user.uid}`);
         }))
             .catch((error) => {
             console.log(error);
@@ -75567,12 +75572,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getPosts = exports.createPost = void 0;
 const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-let counter = 1;
 function createPost(userId, imageUrl, text) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            counter = 900;
-            yield axios_1.default.post('/api/post', { userId, imageUrl, text, counter });
+            yield axios_1.default.post('/api/post', { userId, imageUrl, text });
         }
         catch (error) {
             console.log(error);
@@ -75580,22 +75583,21 @@ function createPost(userId, imageUrl, text) {
     });
 }
 exports.createPost = createPost;
-function getPosts(userId) {
+const getPosts = function (userId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            console.log('2. im here');
-            const { posts } = yield axios_1.default.get('/api/allposts', {
-                headers: {
-                    id: userId
-                }
-            });
+            let posts = [{}];
+            yield axios_1.default.get(`/api/allposts/${userId}`)
+                .then((response) => { posts = response.data; });
+            console.log(posts);
             return posts;
         }
         catch (error) {
             console.log(error);
+            return null;
         }
     });
-}
+};
 exports.getPosts = getPosts;
 
 
@@ -75721,12 +75723,12 @@ react_dom_1.default.render(React.createElement(react_router_dom_1.BrowserRouter,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const config = {
     firebase: {
-        apiKey: 'AIzaSyBEYeJ55z6qVEgMZPEjdDN8jhhe3hTAJvw',
-        authDomain: 'speakfriend-a4c8d.firebaseapp.com',
-        projectId: 'speakfriend-a4c8d',
-        storageBucket: 'speakfriend-a4c8d.appspot.com',
-        messagingSenderId: '367763889160',
-        appId: '1:367763889160:web:119e995bda4205781205bd',
+        apiKey: "AIzaSyCoCH5PHOUe3zmLDAIzRjLsp6umUNzsimU",
+        authDomain: "twitchspeakfriend.firebaseapp.com",
+        projectId: "twitchspeakfriend",
+        storageBucket: "twitchspeakfriend.appspot.com",
+        messagingSenderId: "626100278677",
+        appId: "1:626100278677:web:75a98f5643e60a1459d29c"
     },
 };
 exports.default = config;

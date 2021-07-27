@@ -1,13 +1,9 @@
 import React from 'react';
 import MainNav from './MainNav'
+import { UserType } from './callFunctions/singleUser'
 
 interface AllProps {
-  user: {
-    id: string,
-    username: string,
-    firebaseID: string,
-    email: string
-  }
+  user: UserType
   setUser: (user: Object) => void
 }
 const AllPosts: React.FunctionComponent<AllProps> = (props) => {

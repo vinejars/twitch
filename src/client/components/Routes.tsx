@@ -7,12 +7,13 @@ import Login from './Login'
 import ProfilePage from './ProfilePage'
 import CreatePost from './CreatePost'
 import AllPosts from './AllPosts'
+import { UserType } from './callFunctions/singleUser'
 import '../styles.css'
 
 
 
 const Routes: React.FunctionComponent = props => {
- const [user, setUser] = useState<any>({})
+ const [user, setUser] = useState<UserType>({})
 
   return(
         <div>
@@ -40,6 +41,8 @@ const Routes: React.FunctionComponent = props => {
          <Route exact path='/gallery'>
          <AllPosts user={user} setUser={setUser}/> 
          </Route>
+
+
          </Switch>
        </div>
 

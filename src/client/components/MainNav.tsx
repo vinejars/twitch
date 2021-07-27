@@ -1,14 +1,10 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import firebase from '../../config/firebase';
+import { UserType } from './callFunctions/singleUser'
 
 interface NavProps {
-	user: {
-		id: string;
-		username: string;
-		firebaseID: string;
-		email: string;
-	};
+	user: UserType;
 	setUser: (user: Object) => void;
 }
 
@@ -21,16 +17,16 @@ const MainNav: React.FunctionComponent<NavProps> = (props) => {
 			.catch((error) => {
 				console.log(error);
 			});
-		props.setUser(null);
+		props.setUser({id: undefined, email: undefined, username: undefined, firebaseID: undefined});
 		history.push('/login');
 	};
 
 	return (
 		<div>
 			<nav id='navcontain'>
-				<Link to='/allPhotos'> Feed </Link>
+				<Link to='/gallery'> The Fellowship Feed </Link>
 				<Link to='/add'> Add Post </Link>
-				<Link to='/gallery'> My Journey </Link>
+				<Link to={`/user/${props.user.id}`}> My Journey </Link>
 				<button onClick={logout}> Logout </button>
 			</nav>
 		</div>

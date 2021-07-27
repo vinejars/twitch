@@ -1,28 +1,24 @@
 import React, { useState } from 'react'
 import firebase from '../../config/firebase'
 import { createPost } from './callFunctions/posts'
+import { UserType } from './callFunctions/singleUser'
 import MainNav from './MainNav'
 import { useHistory } from 'react-router-dom'
 
 
 interface CreateProps {
-  user: {
-    id: string,
-    username: string,
-    firebaseID: string,
-    email: string
-  }
+  user: UserType
   setUser: (user: Object) => void
 }
 
 const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
   console.log(props)
- const [text, setText] = useState('')
- const [photoUrl, setPhotoUrl] = useState('')
- const [userId, setUserId] = useState('')
+ const [text, setText] = useState<string>('')
+ const [photoUrl, setPhotoUrl] = useState<string>('')
+ const [userId, setUserId] = useState<string>('')
  const history = useHistory()
 
-const handleClick = (e) =>{
+const handleClick = (e: any) =>{
   e.preventDefault()
   createPost(userId, photoUrl, text)
   history.push(`/user/${props.user.id}`)
