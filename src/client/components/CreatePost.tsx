@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import firebase from '../../config/firebase'
 import { createPost } from './callFunctions/posts'
 import MainNav from './MainNav'
+import { useHistory } from 'react-router-dom'
+
 
 interface CreateProps {
   user: {
@@ -14,15 +16,16 @@ interface CreateProps {
 }
 
 const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
+  console.log(props)
  const [text, setText] = useState('')
  const [photoUrl, setPhotoUrl] = useState('')
  const [userId, setUserId] = useState('')
+ const history = useHistory()
 
 const handleClick = (e) =>{
   e.preventDefault()
-  console.log('this is userId: ', userId)
-  console.log('this is photoUrl: ', photoUrl)
   createPost(userId, photoUrl, text)
+  history.push(`/user/${props.user.id}`)
 }
 
   const onChange = async (e: any) => {

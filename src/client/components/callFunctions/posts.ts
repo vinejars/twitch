@@ -10,3 +10,17 @@ try {
       console.log(error)
   }
 }
+
+export async function getPosts(userId:string){
+    try {
+      console.log('2. im here')
+        const { posts } = await axios.get('/api/allposts',{
+      headers: {
+        id: userId
+      }
+    })
+    return posts
+    } catch (error) {
+        console.log(error)
+    }
+}

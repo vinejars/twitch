@@ -75040,15 +75040,17 @@ const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/re
 const firebase_1 = __importDefault(__webpack_require__(/*! ../../config/firebase */ "./src/config/firebase.ts"));
 const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const CreatePost = (props) => {
+    console.log(props);
     const [text, setText] = react_1.useState('');
     const [photoUrl, setPhotoUrl] = react_1.useState('');
     const [userId, setUserId] = react_1.useState('');
+    const history = react_router_dom_1.useHistory();
     const handleClick = (e) => {
         e.preventDefault();
-        console.log('this is userId: ', userId);
-        console.log('this is photoUrl: ', photoUrl);
         posts_1.createPost(userId, photoUrl, text);
+        history.push(`/user/${props.user.id}`);
     };
     const onChange = (e) => __awaiter(void 0, void 0, void 0, function* () {
         const file = e.target.files[0];
@@ -75337,13 +75339,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
+const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
 const ProfilePage = (props) => {
-    console.log('profile props: ', props);
+    const [posts, setPosts] = react_1.useState([]);
     function grabUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const loggedInUser = yield singleUser_1.getSingleUser(id);
             props.setUser(loggedInUser);
+        });
+    }
+    function grabPosts(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log('1. im here');
+            const posts = yield posts_1.getPosts(id);
+            setPosts(posts);
         });
     }
     react_1.useEffect(() => {
@@ -75351,6 +75361,9 @@ const ProfilePage = (props) => {
             grabUser(window.localStorage.id);
         }
     });
+    react_1.useEffect(() => __awaiter(void 0, void 0, void 0, function* () {
+        grabPosts(window.localStorage.id);
+    }), []);
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
         react_1.default.createElement("h1", null, " Can We See This?")));
@@ -75552,7 +75565,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createPost = void 0;
+exports.getPosts = exports.createPost = void 0;
 const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 let counter = 1;
 function createPost(userId, imageUrl, text) {
@@ -75567,6 +75580,23 @@ function createPost(userId, imageUrl, text) {
     });
 }
 exports.createPost = createPost;
+function getPosts(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            console.log('2. im here');
+            const { posts } = yield axios_1.default.get('/api/allposts', {
+                headers: {
+                    id: userId
+                }
+            });
+            return posts;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+exports.getPosts = getPosts;
 
 
 /***/ }),
