@@ -9,6 +9,7 @@
     "@types/pg": "^8.6.1",
     "@types/react": "^17.0.15",
     "@types/react-router-dom": "^5.1.8",
+    "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "bluebird": "^3.7.2",

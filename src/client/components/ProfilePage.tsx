@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import {getSingleUser} from './callFunctions/singleUser'
+import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom'
+import { getSingleUser } from './callFunctions/singleUser'
+import CreatePost from './CreatePost'
+import MainNav from './MainNav'
 
-interface PageProps {
+interface ProfileProps {
   user: {
-      email: string,
-      id: string,
-      firebaseID: string,
-      username: string
+    id: string,
+    username: string,
+    firebaseID: string,
+    email: string
   }
+  setUser: (user: Object) => void
 }
 
-export default const ProfilePage: React.FunctionComponent<PageProps> = (props) => {
+const ProfilePage: React.FunctionComponent<ProfileProps> = (props) => {
+  console.log('profile props: ', props)
+  async function grabUser(id:string){
+    const loggedInUser = await getSingleUser(id)
+    props.setUser(loggedInUser)
+  }
 
-     const {id} = useParams()
-     const [user, setUser] = useState({})
-     console.log(id)
-    
-    useEffect(() => {
-    const currUser = getSingleUser(id)
-    setUser(currUser)
-  })
+useEffect(() =>{
+  if(!props.user.username){
+    grabUser(window.localStorage.id)
+  }
+}) 
 
-    return (
-        <div>
-          <h1>meh</h1>  
-        </div>
-    )
+  return(
+ <div>
+ <MainNav user={props.user} setUser={props.setUser} />
+ <h1> Can We See This?</h1>
+  </div>
+)
 }
 
-
-
+export default ProfilePage;

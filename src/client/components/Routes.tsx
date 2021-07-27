@@ -1,24 +1,54 @@
-import * as React from 'react'
-import {HashRouter as Router, Route, Switch } from 'react-router-dom'
+import React, {useState, useRef, useEffect} from 'react'
+import { withRouter, Route, Switch } from 'react-router-dom'
 import Main from './Main'
+import MainNav from './MainNav'
 import Signup from './Signup'
 import Login from './Login'
 import ProfilePage from './ProfilePage'
+import CreatePost from './CreatePost'
+import AllPosts from './AllPosts'
 import '../styles.css'
 
 
-export default function Routes() {
-    return (
-             <Router>
-            <div>
-              <Switch>
-              <Route exact path="/" component={Main} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path='/signup' component={Signup}/>
-              <Route exact path='/:id' component={ProfilePage}/>
-              </Switch>  
-            </div>
-            </Router> 
-    )
+
+const Routes: React.FunctionComponent = props => {
+ const [user, setUser] = useState<any>({})
+
+  return(
+        <div>
+        <Switch>
+         <Route exact path='/'>
+         <Main />
+         </Route>
+
+          <Route exact path='/login'>
+         <Login user={user} setUser={setUser}/> 
+         </Route>
+
+         <Route exact path='/signup'>
+         <Signup user={user} setUser={setUser}/> 
+         </Route>
+
+         <Route exact path='/user/:id'>
+         <ProfilePage user={user} setUser={setUser}/>
+         </Route>
+
+         <Route exact path='/add'>
+         <CreatePost user={user} setUser={setUser}/>
+         </Route>
+
+         <Route exact path='/gallery'>
+         <AllPosts user={user} setUser={setUser}/> 
+         </Route>
+         </Switch>
+       </div>
+
+  )
 }
+
+
+export default Routes
+
+
+
 

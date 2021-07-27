@@ -1,5 +1,4 @@
  
-const path = require('path');
 
 module.exports = {
   entry: ['babel-polyfill', './src/client/index.tsx'],

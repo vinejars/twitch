@@ -1,12 +1,16 @@
 import * as React from 'react';
-import Nav from './Nav'
+import LoginNav from './LoginNav'
 
-
-export default function Main() {
+class Main extends React.Component{
+  
+  render() {
     return (
-        <div>
-        <Nav/>
-            <h1>howdy</h1>
-        </div>
-    )
+      <div>
+      <LoginNav/>
+      meh
+      </div>
+    );
+  }
 }
+
+export default Main

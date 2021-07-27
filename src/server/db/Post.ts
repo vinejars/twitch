@@ -26,6 +26,9 @@ interface PostInstance
       },
       imageUrl: {
           type: DataTypes.TEXT
+      },
+      userId: {
+        type: DataTypes.STRING
       }
     }
 )

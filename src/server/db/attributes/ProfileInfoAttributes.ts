@@ -4,10 +4,12 @@ export interface ProfileInfoAttributes {
 
   aboutMe: string | null;
 
-  faveBook: string | null;
+  ring: string | null;
 
-  faveChar: string | null;
+ destination: string | null;
 
+  userId: string | null
+  
   readonly 'createdAt'?: Date;
 
   readonly 'updatedDate'?: Date;

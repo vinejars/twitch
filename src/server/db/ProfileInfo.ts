@@ -25,10 +25,13 @@ interface ProfileInfoInstance
        aboutMe: {
             type: DataTypes.TEXT
         }, 
-        faveChar: {
+        ring: {
             type: DataTypes.STRING
         },
-        faveBook: {
+        destination: {
+            type: DataTypes.STRING
+        },
+        userId: {
             type: DataTypes.STRING
         }
     }

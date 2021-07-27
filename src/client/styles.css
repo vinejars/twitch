@@ -1,5 +1,5 @@
-/* Navbar styling */
-/* 
+Navbar styling */
+
 #navcontain{
     display:flex;
     flex-direction: row;
@@ -8,5 +8,5 @@
 }
 
 *{
-    background-color: gray;
-} */
+    background-color: #c3c9c5;
+} 

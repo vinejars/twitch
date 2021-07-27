@@ -30,6 +30,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+app.get('*', (req: Request, res: Response, next: NextFunction) => {
+  res.sendFile(path.join(__dirname, '..', 'src','client', 'index.html'));
+});
 const init = async () => {
   try {
    //console.log('db: ', db)
