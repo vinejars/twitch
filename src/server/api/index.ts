@@ -136,17 +136,19 @@ router.post(
 
 //route to edit About Me info for a user
 
-router.put('/editabout',async (req: Request, res: Response, next: NextFunction) => {
+router.put(
+  "/editabout",
+  async (req: Request, res: Response, next: NextFunction) => {
     try {
-    const info: any = await ProfileInfo.findByPk(req.body.id)
-    if(!info){
-    res.sendStatus(404)
-  }
-    info.update(req.body)
-
+      const info: any = await ProfileInfo.findByPk(req.body.id);
+      if (!info) {
+        res.sendStatus(404);
+      }
+      info.update(req.body);
     } catch (error) {
-        next(error)
+      next(error);
     }
-})
+  }
+);
 
 module.exports = router;

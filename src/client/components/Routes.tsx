@@ -7,7 +7,7 @@ import Login from "./Login";
 import ProfilePage from "./ProfilePage";
 import CreatePost from "./CreatePost";
 import AllPosts from "./AllPosts";
-import EditAbout from './EditAbout'
+import EditAbout from "./EditAbout";
 import { UserType } from "./callFunctions/singleUser";
 import "../styles.css";
 

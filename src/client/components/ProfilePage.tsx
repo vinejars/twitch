@@ -55,7 +55,7 @@ const ProfilePage: React.FunctionComponent<ProfileProps> = (props) => {
           <p> {info.ring} </p>
           <h3> {info.destination} </h3>
           <p> {info.destination} </p>
-          <Link to='/edit'> Edit My Info </Link>
+          <Link to="/edit"> Edit My Info </Link>
         </div>
       )}
       {!posts ? null : (

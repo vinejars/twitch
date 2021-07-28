@@ -1,7 +1,7 @@
 import { User } from "../../../server/db/index";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { PostType } from './posts'
+import { PostType } from "./posts";
 
 export type UserType = {
   id?: string;
@@ -64,14 +64,13 @@ export async function createAbout(
   }
 }
 
-//function to edit AboutMe section 
+//function to edit AboutMe section
 
-export async function editAbout(info: PostType){
+export async function editAbout(info: PostType) {
   try {
     const { data } = await axios.put(`/api/editAbout`, info);
-      return data
+    return data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-
 }
