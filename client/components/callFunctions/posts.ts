@@ -30,7 +30,7 @@ export async function createPost(
 			'text:',
 			text
 		);
-		await axios.post('/api/post', { userId, imageUrl, text, id: 1 });
+		await axios.post('/api/post', { userId, imageUrl, text });
 	} catch (error) {
 		console.log(error);
 	}

@@ -112,19 +112,21 @@ router.post(
 	'/post',
 	async (req: Request, res: Response, next: NextFunction) => {
 		try {
-			// const lastPost = await Post.findAll({
-			// 	raw: true,
-			// 	limit: 1,
-			// 	order: [['createdAt', 'DESC']],
-			// });
+			const lastPost = await Post.findAll({
+				raw: true,
+				limit: 1,
+				order: [['createdAt', 'DESC']],
+			});
 
-			// console.log(lastPost);
+       let newId = lastPost[0].id
+
 
 			const post = await Post.create(
-	   req.body
+	   {userId: req.body.userId,
+     text: req.body.text,
+     imageUrl: req.body.imageUrl,
+     id: newId}
 			);
-
-			console.log('this is req.body: ', req.body);
 			res.json(post);
 		} catch (error) {
 			next(error);
