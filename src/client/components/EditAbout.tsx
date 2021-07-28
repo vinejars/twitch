@@ -18,7 +18,12 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
 
   async function grabInfo() {
     const oldInfo = await getInfo(props.user.id);
-    setInfo(oldInfo);
+    await setInfo(oldInfo);
+    console.log("info: ", info)
+    // setRing(info.ring)
+    // setDestination(info.destination)
+    // setAbout(info.aboutMe)
+    console.log('ring: ', ring, 'about: ', about, 'destination', destination)
   }
 
   useEffect(() => {
@@ -27,8 +32,7 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
     }
   });
 
-  function handleSubmit() {
-    console.log("is handleSubmit running?");
+  async function handleSubmit() {
     let obj: PostType = {
       id: props.user.id,
       aboutMe: about,
@@ -36,9 +40,10 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
       destination: destination,
       userId: props.user.id,
     };
-    editAbout(obj);
+    editAbout(obj)
     history.push(`/gallery`);
-  }
+    }
+  
 
   return (
     <div>

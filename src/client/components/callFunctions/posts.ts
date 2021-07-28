@@ -20,6 +20,16 @@ export async function createPost(
   }
 }
 
+//function to delete a post
+
+export async function deletePost(id){
+    try {
+    await axios.delete(`/api/deletepost/${id}`)
+    } catch (error) {
+        console.log(error)
+    }
+
+}
 //function to get a specific user's posts
 export const getPosts = async function (userId: string) {
   try {
