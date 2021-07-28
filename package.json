@@ -49,7 +49,8 @@
     "build:server": "dotenv tsc -p .",
     "build:watch": "dotenv webpack -w",
     "build:client": "dotenv webpack build",
-    "seed": "dotenv ts-node src/seed.ts"
+    "seed": "dotenv ts-node src/seed.ts",
+    "build-seed": "dotenv node dist/seed.js"
   },
   "author": "Em Comeau",
   "license": "ISC"
