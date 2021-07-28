@@ -118,13 +118,13 @@ router.post(
 			// 	order: [['createdAt', 'DESC']],
 			// });
 
-			console.log(lastPost);
+			// console.log(lastPost);
 
 			const post = await Post.create({
 				imageUrl: req.body.imageUrl,
 				text: req.body.text,
 				userId: req.body.userId,
-				id: 1,
+				id: 890,
 			});
 
 			console.log('this is req.body: ', req.body);
