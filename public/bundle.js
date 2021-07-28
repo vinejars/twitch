@@ -74996,6 +74996,59 @@ exports.default = AllPosts;
 
 /***/ }),
 
+/***/ "./src/client/components/CreateAbout.tsx":
+/*!***********************************************!*\
+  !*** ./src/client/components/CreateAbout.tsx ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
+const CreateAbout = props => {
+    const [about, setAbout] = react_1.useState('');
+    const [ring, setRing] = react_1.useState('');
+    const [destination, setDestination] = react_1.useState('');
+    function handleSubmit(e) {
+        e.preventDefault();
+        posts_1.createAbout(props.user.id, about, ring, destination);
+    }
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement("form", { onSubmit: (e) => handleSubmit(e) },
+            react_1.default.createElement("label", { htmlFor: 'aboutme' }, "About Me: "),
+            react_1.default.createElement("input", { type: 'text', name: 'aboutme', id: 'aboutme', value: about, onChange: (event) => setAbout(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: 'ring' }, "My Ring, aka what I'm bringing with me on this journey: "),
+            react_1.default.createElement("input", { type: 'text', name: 'ring', id: 'ring', value: ring, onChange: (event) => setRing(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: 'destination' }, "My Destination: "),
+            react_1.default.createElement("input", { type: 'text', name: 'destination', id: 'destination', value: destination, onChange: (event) => setDestination(event.target.value) }),
+            react_1.default.createElement("button", { type: 'submit' }, " Submit!"))));
+};
+exports.default = CreateAbout;
+
+
+/***/ }),
+
 /***/ "./src/client/components/CreatePost.tsx":
 /*!**********************************************!*\
   !*** ./src/client/components/CreatePost.tsx ***!
@@ -75042,15 +75095,15 @@ const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/c
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const CreatePost = (props) => {
-    console.log(props);
     const [text, setText] = react_1.useState('');
     const [photoUrl, setPhotoUrl] = react_1.useState('');
     const [userId, setUserId] = react_1.useState('');
     const history = react_router_dom_1.useHistory();
+    // console.log('createpost user: ', props.user)
     const handleClick = (e) => {
         e.preventDefault();
         posts_1.createPost(userId, photoUrl, text);
-        history.push(`/user/${props.user.id}`);
+        history.push(`/user/${userId}`);
     };
     const onChange = (e) => __awaiter(void 0, void 0, void 0, function* () {
         const file = e.target.files[0];
@@ -75061,6 +75114,7 @@ const CreatePost = (props) => {
         });
         let id = firebase_1.default.auth().currentUser.uid;
         let url = yield fileRef.getDownloadURL();
+        console.log('fileRef: ', fileRef);
         setPhotoUrl(url);
         setUserId(id);
     });
@@ -75144,7 +75198,6 @@ const firebase_1 = __webpack_require__(/*! ../../config/firebase */ "./src/confi
 const Fail_1 = __importDefault(__webpack_require__(/*! ./Fail */ "./src/client/components/Fail.tsx"));
 const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
 const Login = (props) => {
-    console.log('login props: ', props);
     const [loggingIn, setLoggingIn] = react_1.useState(false);
     const [email, setEmail] = react_1.useState('');
     const [password, setPassword] = react_1.useState('');
@@ -75274,6 +75327,7 @@ const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const firebase_1 = __importDefault(__webpack_require__(/*! ../../config/firebase */ "./src/config/firebase.ts"));
 const MainNav = (props) => {
+    // console.log('nav user: ', props.user)
     const history = react_router_dom_1.useHistory();
     const logout = () => {
         firebase_1.default
@@ -75340,11 +75394,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
 const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
+const CreateAbout_1 = __importDefault(__webpack_require__(/*! ./CreateAbout */ "./src/client/components/CreateAbout.tsx"));
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
 const ProfilePage = (props) => {
     const [posts, setPosts] = react_1.useState(null);
     const [loading, setLoading] = react_1.useState(true);
-    let render = '';
     function grabUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const loggedInUser = yield singleUser_1.getSingleUser(id);
@@ -75356,21 +75410,26 @@ const ProfilePage = (props) => {
             const gotPosts = yield posts_1.getPosts(id);
             if (!posts) {
                 setPosts(gotPosts);
-                console.log('gotposts: ', posts);
+                //console.log('gotposts: ', posts)
             }
         });
     }
     react_1.useEffect(() => {
-        if (!props.user.username) {
+        if (!props.user.username | !posts) {
             grabUser(window.localStorage.id);
-            grabPosts(window.localStorage.id);
             setLoading(false);
+        }
+    });
+    react_1.useEffect(() => {
+        if (!posts) {
+            grabPosts(window.localStorage.id);
         }
     });
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
-        !posts ? (react_1.default.createElement("h1", null, " hi ")) : (react_1.default.createElement("div", null, posts.map((post) => (react_1.default.createElement("div", { key: post.id },
-            react_1.default.createElement("img", { src: post.imageUrl }),
+        react_1.default.createElement(CreateAbout_1.default, { user: props.user }),
+        !posts ? (null) : (react_1.default.createElement("div", null, posts.map((post) => (react_1.default.createElement("div", { key: post.id },
+            react_1.default.createElement("img", { src: post.imageUrl, width: 300 }),
             react_1.default.createElement("p", null, post.text))))))));
 };
 exports.default = ProfilePage;
@@ -75506,7 +75565,7 @@ const Signup = (props) => {
             singleUser_1.createUser(username, email, result.user.uid);
             const loggedUser = yield singleUser_1.getSingleUser(result.user.uid);
             props.setUser(loggedUser);
-            history.push(`/user/${result.user.uid}`);
+            history.push(`/login`);
         }))
             .catch((error) => {
             console.log(error);
@@ -75572,6 +75631,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getPosts = exports.createPost = void 0;
 const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+//function to create a post
 function createPost(userId, imageUrl, text) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -75583,13 +75643,13 @@ function createPost(userId, imageUrl, text) {
     });
 }
 exports.createPost = createPost;
+//function to get a specific user's posts
 const getPosts = function (userId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let posts = [{}];
             yield axios_1.default.get(`/api/allposts/${userId}`)
                 .then((response) => { posts = response.data; });
-            console.log(posts);
             return posts;
         }
         catch (error) {
@@ -75630,7 +75690,7 @@ const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules
 const getSingleUser = function (id) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const { data } = yield axios_1.default.get(`/api/${id}`);
+            const { data } = yield axios_1.default.get(`/api/user/${id}`);
             return data;
         }
         catch (error) {
@@ -75723,12 +75783,12 @@ react_dom_1.default.render(React.createElement(react_router_dom_1.BrowserRouter,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const config = {
     firebase: {
-        apiKey: "AIzaSyCoCH5PHOUe3zmLDAIzRjLsp6umUNzsimU",
-        authDomain: "twitchspeakfriend.firebaseapp.com",
-        projectId: "twitchspeakfriend",
-        storageBucket: "twitchspeakfriend.appspot.com",
-        messagingSenderId: "626100278677",
-        appId: "1:626100278677:web:75a98f5643e60a1459d29c"
+        apiKey: process.env.API_KEY,
+        authDomain: process.env.AUTH_DOMAIN,
+        projectId: process.env.PROJECT_ID,
+        storageBucket: process.env.STORAGE_BUCKET,
+        messagingSenderId: process.env.SENDER_ID,
+        appId: process.env.APP_ID
     },
 };
 exports.default = config;

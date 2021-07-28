@@ -2,20 +2,21 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { auth } from '../../config/firebase'
 import Fail from './Fail'
-import { getSingleUser } from './callFunctions/singleUser'
+import { getSingleUser, UserType } from './callFunctions/singleUser'
 
 interface LoginProps{
-	user: Object;
-	setUser: Function;
+	user: UserType;
+	setUser: (user: UserType) => void;
 }
 
 const Login: React.FunctionComponent<LoginProps> = (props) => {
-	console.log('login props: ', props)
 	const [loggingIn, setLoggingIn] = useState<boolean>(false);
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [error, setError] = useState<string>('');
 	const history = useHistory();
+
+
 	const signInWithEmailAndPassword = async (e: any) => {
 		e.preventDefault();
 		if (error !== '') setError('');

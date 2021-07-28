@@ -9,6 +9,7 @@ interface NavProps {
 }
 
 const MainNav: React.FunctionComponent<NavProps> = (props) => {
+	// console.log('nav user: ', props.user)
 	const history = useHistory();
 	const logout = () => {
 		firebase

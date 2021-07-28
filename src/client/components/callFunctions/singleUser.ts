@@ -12,7 +12,7 @@ export type UserType = {
 //function to retrieve a single user from database
 export const getSingleUser = async function(id: string){
     try {
-        const {data} = await axios.get(`/api/${id}`)
+        const {data} = await axios.get(`/api/user/${id}`)
         return data
     } catch (error) {
         console.log(error)
