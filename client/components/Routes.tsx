@@ -23,9 +23,6 @@ const Routes: React.FunctionComponent = (props) => {
         <Route exact path="/signup">
           <Signup user={user} setUser={setUser} />
         </Route>
-        {/* </Switch>
-        {window.localStorage.id ? (
-          <Switch> */}
 
         <Route exact path="/">
           <Main />
@@ -47,7 +44,7 @@ const Routes: React.FunctionComponent = (props) => {
           <AllPosts user={user} setUser={setUser} />
         </Route>
       </Switch>
-      {/* ) : (null)} */}
+
     </div>
   );
 };

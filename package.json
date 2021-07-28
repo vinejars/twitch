@@ -46,10 +46,10 @@
     "start": "node dist/app.js",
     "build": "npm run build:server & npm run build:client",
     "start:dev": "nodemon src/app.ts & npm run build:watch",
-    "build:server": "tsc -p .",
-    "build:watch": "webpack -w",
+    "build:server": "dotenv tsc -p .",
+    "build:watch": "dotenv webpack -w",
     "build:client": "dotenv webpack build",
-    "seed": "ts-node src/seed.ts"
+    "seed": "dotenv ts-node src/seed.ts"
   },
   "author": "Em Comeau",
   "license": "ISC"

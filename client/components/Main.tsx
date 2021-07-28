@@ -6,7 +6,10 @@ class Main extends React.Component {
     return (
       <div>
         <LoginNav />
-        meh
+        <div id='main-heading'>
+        <h1> Welcome to Speak Friend! </h1>
+        <h2>the social media site for LOTR nerds looking for adventure </h2>
+        </div>
       </div>
     );
   }
