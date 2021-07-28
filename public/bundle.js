@@ -74942,8 +74942,6 @@ const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const firebase_1 = __importDefault(__webpack_require__(/*! ../config/firebase */ "./client/config/firebase.ts"));
 const MainNav = (props) => {
-    // console.log('nav user: ', props.user)
-    const linkId = JSON.parse(localStorage.getItem("id")) || {};
     const history = react_router_dom_1.useHistory();
     const logout = () => {
         firebase_1.default
@@ -74961,12 +74959,12 @@ const MainNav = (props) => {
         localStorage.clear();
         history.push("/login");
     };
-    return (react_1.default.createElement("div", null,
+    return (react_1.default.createElement("div", null, props.user ? (react_1.default.createElement("div", null,
         react_1.default.createElement("nav", { id: "navcontain" },
             react_1.default.createElement(react_router_dom_1.Link, { to: "/gallery" }, " The Fellowship Feed "),
             react_1.default.createElement(react_router_dom_1.Link, { to: "/add" }, " Add Post "),
-            react_1.default.createElement(react_router_dom_1.Link, { to: `/user/${linkId}` }, " My Journey "),
-            react_1.default.createElement("button", { onClick: logout }, " Logout "))));
+            react_1.default.createElement(react_router_dom_1.Link, { to: `/user/${props.user.id}` }, " My Journey "),
+            react_1.default.createElement("button", { onClick: logout }, " Logout ")))) : null));
 };
 exports.default = MainNav;
 

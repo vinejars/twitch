@@ -35,7 +35,7 @@ const MainNav: React.FunctionComponent<NavProps> = (props) => {
       <nav id="navcontain">
         <Link to="/gallery"> The Fellowship Feed </Link>
         <Link to="/add"> Add Post </Link>
-        <Link to={`/user/${linkId}`}> My Journey </Link>
+        <Link to={`/user/${props.user.id}`}> My Journey </Link>
         <button onClick={logout}> Logout </button>
       </nav>
     </div>) : null
