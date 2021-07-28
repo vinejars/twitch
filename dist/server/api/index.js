@@ -102,19 +102,16 @@ router.post('/createabout', (req, res, next) => __awaiter(void 0, void 0, void 0
 //create a post
 router.post('/post', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // const lastPost = await Post.findAll({
-        // 	raw: true,
-        // 	limit: 1,
-        // 	order: [['createdAt', 'DESC']],
-        // });
-        // console.log(lastPost);
-        const post = yield index_1.Post.create({
-            imageUrl: req.body.imageUrl,
-            text: req.body.text,
-            userId: req.body.userId,
-            id: 890,
+        const lastPost = yield index_1.Post.findAll({
+            raw: true,
+            limit: 1,
+            order: [['createdAt', 'DESC']],
         });
-        console.log('this is req.body: ', req.body);
+        let newId = lastPost[0].id + 1;
+        const post = yield index_1.Post.create({ userId: req.body.userId,
+            text: req.body.text,
+            imageUrl: req.body.imageUrl,
+            id: newId });
         res.json(post);
     }
     catch (error) {
