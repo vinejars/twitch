@@ -24,13 +24,13 @@ const Login: React.FunctionComponent<LoginProps> = (props) => {
 			.signInWithEmailAndPassword(email, password)
 			.then(async (result: any) => {
 				const loggedUser = await getSingleUser(result.user.uid);
-        if(!loggedUser){
-          throw new Error('no user!')
-        } else 
-				await props.setUser(loggedUser);
-				window.localStorage.setItem('id', `${result.user.uid}`);
-				history.push(`/gallery`);
-      }
+				if (!loggedUser) {
+					throw new Error('no user!');
+				} else {
+					await props.setUser(loggedUser);
+					window.localStorage.setItem('id', `${result.user.uid}`);
+					history.push(`/gallery`);
+				}
 			})
 			.catch((error) => {
 				console.log(error);
