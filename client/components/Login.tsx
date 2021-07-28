@@ -26,7 +26,7 @@ const Login: React.FunctionComponent<LoginProps> = (props) => {
         const loggedUser = await getSingleUser(result.user.uid);
         props.setUser(loggedUser);
         window.localStorage.setItem("id", `${result.user.uid}`);
-        history.push(`/user/${result.user.uid}`);
+        history.push(`/gallery`);
       })
       .catch((error) => {
         console.log(error);

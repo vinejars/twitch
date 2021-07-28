@@ -16,16 +16,19 @@ const Routes: React.FunctionComponent = (props) => {
   return (
     <div>
       <Switch>
-        <Route exact path="/">
-          <Main />
-        </Route>
-
         <Route exact path="/login">
           <Login user={user} setUser={setUser} />
         </Route>
 
         <Route exact path="/signup">
           <Signup user={user} setUser={setUser} />
+        </Route>
+        {/* </Switch>
+        {window.localStorage.id ? (
+          <Switch> */}
+
+        <Route exact path="/">
+          <Main />
         </Route>
 
         <Route exact path="/user/:id">
@@ -44,6 +47,7 @@ const Routes: React.FunctionComponent = (props) => {
           <AllPosts user={user} setUser={setUser} />
         </Route>
       </Switch>
+      {/* ) : (null)} */}
     </div>
   );
 };

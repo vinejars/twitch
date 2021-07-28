@@ -25,6 +25,7 @@ const MainNav: React.FunctionComponent<NavProps> = (props) => {
       username: undefined,
       firebaseID: undefined,
     });
+    window.localStorage.removeItem("id");
     history.push("/login");
   };
 

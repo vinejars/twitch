@@ -34,16 +34,16 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
     await fileRef.put(file).then(() => {
       console.log("SUCCESS!!!");
     });
-    if (firebase.auth().currentUser) {
-      let id: string | null = firebase.auth().currentUser.uid;
-      let url: string | null = await fileRef.getDownloadURL();
-      setPhotoUrl(url);
-      setUserId(id);
-    } else {
+
+    if (!window.localStorage.id) {
       throw new Error(
         "how did you get here?! please log in to upload a post :)"
       );
     }
+    let id: string = window.localStorage.id;
+    let url: string | null = await fileRef.getDownloadURL();
+    setPhotoUrl(url);
+    setUserId(id);
   };
 
   return (
