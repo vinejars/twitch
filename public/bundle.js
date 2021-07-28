@@ -74916,7 +74916,9 @@ class Main extends React.Component {
     render() {
         return (React.createElement("div", null,
             React.createElement(LoginNav_1.default, null),
-            "meh"));
+            React.createElement("div", { id: 'main-heading' },
+                React.createElement("h1", null, " Welcome to Speak Friend! "),
+                React.createElement("h2", null, "the social media site for LOTR nerds looking for adventure "))));
     }
 }
 exports.default = Main;
@@ -74941,6 +74943,7 @@ const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_m
 const firebase_1 = __importDefault(__webpack_require__(/*! ../config/firebase */ "./client/config/firebase.ts"));
 const MainNav = (props) => {
     // console.log('nav user: ', props.user)
+    const linkId = JSON.parse(localStorage.getItem("id")) || {};
     const history = react_router_dom_1.useHistory();
     const logout = () => {
         firebase_1.default
@@ -74955,14 +74958,14 @@ const MainNav = (props) => {
             username: undefined,
             firebaseID: undefined,
         });
-        window.localStorage.removeItem("id");
+        localStorage.clear();
         history.push("/login");
     };
     return (react_1.default.createElement("div", null,
         react_1.default.createElement("nav", { id: "navcontain" },
             react_1.default.createElement(react_router_dom_1.Link, { to: "/gallery" }, " The Fellowship Feed "),
             react_1.default.createElement(react_router_dom_1.Link, { to: "/add" }, " Add Post "),
-            react_1.default.createElement(react_router_dom_1.Link, { to: `/user/${props.user.id}` }, " My Journey "),
+            react_1.default.createElement(react_router_dom_1.Link, { to: `/user/${linkId}` }, " My Journey "),
             react_1.default.createElement("button", { onClick: logout }, " Logout "))));
 };
 exports.default = MainNav;

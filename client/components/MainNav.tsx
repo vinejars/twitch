@@ -10,7 +10,6 @@ interface NavProps {
 }
 
 const MainNav: React.FunctionComponent<NavProps> = (props) => {
-  // console.log('nav user: ', props.user)
   const history = useHistory();
   const logout = () => {
     firebase
@@ -25,18 +24,22 @@ const MainNav: React.FunctionComponent<NavProps> = (props) => {
       username: undefined,
       firebaseID: undefined,
     });
-    window.localStorage.removeItem("id");
+    localStorage.clear()
     history.push("/login");
   };
 
   return (
     <div>
+    {props.user ? (
+    <div>
       <nav id="navcontain">
         <Link to="/gallery"> The Fellowship Feed </Link>
         <Link to="/add"> Add Post </Link>
-        <Link to={`/user/${props.user.id}`}> My Journey </Link>
+        <Link to={`/user/${linkId}`}> My Journey </Link>
         <button onClick={logout}> Logout </button>
       </nav>
+    </div>) : null
+    }
     </div>
   );
 };
