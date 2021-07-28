@@ -7,11 +7,19 @@ export type PostType = {
   userId?: string;
 };
 
+export type AboutType = {
+  id: string,
+  aboutMe: string,
+  ring: string,
+  destination: string,
+  userId: string
+}
+
 //function to create a post
 export async function createPost(
   userId: string,
-  imageUrl: string,
-  text: string
+  imageUrl: string | null,
+  text: string | null
 ) {
   try {
     await axios.post("/api/post", { userId, imageUrl, text });
@@ -22,13 +30,12 @@ export async function createPost(
 
 //function to delete a post
 
-export async function deletePost(id){
-    try {
-    await axios.delete(`/api/deletepost/${id}`)
-    } catch (error) {
-        console.log(error)
-    }
-
+export async function deletePost(id: string) {
+  try {
+    await axios.delete(`/api/deletepost/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
 }
 //function to get a specific user's posts
 export const getPosts = async function (userId: string) {

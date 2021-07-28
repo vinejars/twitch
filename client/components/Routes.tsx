@@ -9,7 +9,6 @@ import CreatePost from "./CreatePost";
 import AllPosts from "./AllPosts";
 import EditAbout from "./EditAbout";
 import { UserType } from "./callFunctions/singleUser";
-import "../styles.css";
 
 const Routes: React.FunctionComponent = (props) => {
   const [user, setUser] = useState<UserType>({});

@@ -41,10 +41,12 @@
   },
   "scripts": {
     "start:comp": "node dist/app.js",
-    "start:dev": "nodemon src/app.ts & npm run build-watch",
-    "build": "tsc -p .",
-    "build-watch": "webpack -w",
-    "seed": "ts-node seed.ts"
+    "build": "npm run build:server & npm run build:client",
+    "start:dev": "nodemon src/app.ts & npm run build:watch",
+    "build:server": "tsc -p .",
+    "build:watch": "webpack -w",
+    "build:client": "webpack build",
+    "seed": "ts-node src/seed.ts"
   },
   "author": "Em Comeau",
   "license": "ISC"

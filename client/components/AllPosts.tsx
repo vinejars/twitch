@@ -7,12 +7,12 @@ interface AllProps {
   user: UserType;
   setUser: (user: Object) => void;
 }
+
 const AllPosts: React.FunctionComponent<AllProps> = (props) => {
-  const [images, setImages] = useState<any>(null);
-  console.log("images: ", images);
+  const [images, setImages] = useState<PostType[] | null>(null);
 
   async function grabPosts() {
-    const allImages: any = await getAllImages();
+    const allImages: PostType[] | null = await getAllImages();
     setImages(allImages);
   }
 

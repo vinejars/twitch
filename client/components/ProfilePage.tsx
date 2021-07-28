@@ -14,7 +14,7 @@ const ProfilePage: React.FunctionComponent<ProfileProps> = (props) => {
   const [posts, setPosts] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [info, setInfo] = useState<any>(null);
-  const history = useHistory()
+  const history = useHistory();
 
   async function grabUser(id: string) {
     const loggedInUser = await getSingleUser(id);
@@ -42,10 +42,14 @@ const ProfilePage: React.FunctionComponent<ProfileProps> = (props) => {
     }
   });
 
-  function handleDelete(){
-    deletePost(props.user.id)
-    grabPosts(props.user.id)
-    history.go(0)
+  function handleDelete() {
+    if(props.user.id){
+    deletePost(props.user.id);
+    grabPosts(props.user.id);
+    history.go(0);
+    } else {
+      return;
+    }
   }
 
   return (

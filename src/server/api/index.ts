@@ -155,19 +155,22 @@ router.put(
 
 //route to delete a post
 
-router.delete('/deletepost/:userId', async (req: Request, res: Response, next: NextFunction) => {
-  try {
-      const post =  await Post.findOne({
+router.delete(
+  "/deletepost/:userId",
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const post = await Post.findOne({
         where: { userId: req.params.userId },
       });
-    if(!post){
-        res.sendStatus(404)
-    } else {
-        await post.destroy()
-    }  
-  } catch (error) {
-      console.log(error)
+      if (!post) {
+        res.sendStatus(404);
+      } else {
+        await post.destroy();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
-})
+);
 
 module.exports = router;

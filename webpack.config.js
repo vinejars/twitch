@@ -1,11 +1,13 @@
+const path = require('path')
+
 module.exports = {
-  entry: ["babel-polyfill", "./src/client/index.tsx"],
+  entry: ["babel-polyfill", "./client/index.tsx"],
   output: {
     path: __dirname,
     filename: "./public/bundle.js",
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   mode: "development",
   devtool: "source-map",
@@ -13,7 +15,14 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        loader: "ts-loader",
+        use: [
+          {
+            loader: "ts-loader",
+            options: {
+              configFile: "tsconfig.webpack.json",
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,

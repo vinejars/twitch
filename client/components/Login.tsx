@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../../config/firebase";
+import { auth } from "../config/firebase";
 import Fail from "./Fail";
 import { getSingleUser, UserType } from "./callFunctions/singleUser";
 

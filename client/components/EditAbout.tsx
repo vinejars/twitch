@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { UserType, getInfo, editAbout } from "./callFunctions/singleUser";
-import { PostType } from "./callFunctions/posts";
+import { PostType, AboutType } from "./callFunctions/posts";
 import MainNav from "./MainNav";
 import { useHistory } from "react-router-dom";
 
@@ -16,14 +16,13 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
   const [info, setInfo] = useState<any>(null);
   const history = useHistory();
 
-  async function grabInfo() {
-    const oldInfo = await getInfo(props.user.id);
+  async function grabInfo(){
+    if(props.user.id){
+    const oldInfo: string | null = await getInfo(props.user.id);
     await setInfo(oldInfo);
-    console.log("info: ", info)
-    // setRing(info.ring)
-    // setDestination(info.destination)
-    // setAbout(info.aboutMe)
-    console.log('ring: ', ring, 'about: ', about, 'destination', destination)
+   } else {
+     return 
+   }
   }
 
   useEffect(() => {
@@ -33,17 +32,20 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
   });
 
   async function handleSubmit() {
-    let obj: PostType = {
+    if(props.user.id){
+    let obj: AboutType = {
       id: props.user.id,
       aboutMe: about,
       ring: ring,
       destination: destination,
       userId: props.user.id,
     };
-    editAbout(obj)
+    editAbout(obj);
     history.push(`/gallery`);
+    } else {
+      return
     }
-  
+  }
 
   return (
     <div>

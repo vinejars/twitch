@@ -1,4 +1,4 @@
-import { User, db, Post } from "./src/server/db/index";
+import { User, db, Post } from "./server/db/index";
 
 const seed = async () => {
   await db.sync({ force: true });

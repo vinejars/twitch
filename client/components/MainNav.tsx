@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import firebase from "../../config/firebase";
+import firebase from "../config/firebase";
 import { UserType } from "./callFunctions/singleUser";
 
 interface NavProps {

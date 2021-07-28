@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import firebase from "../../config/firebase";
+import firebase from "../config/firebase";
 import { createPost } from "./callFunctions/posts";
 import { UserType } from "./callFunctions/singleUser";
 import MainNav from "./MainNav";
@@ -11,42 +11,49 @@ interface CreateProps {
 }
 
 const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
-  const [text, setText] = useState<string>("");
-  const [photoUrl, setPhotoUrl] = useState<string>("");
+  const [text, setText] = useState<string | null>("");
+  const [photoUrl, setPhotoUrl] = useState<string | null>("");
   const [userId, setUserId] = useState<string>("");
   const history = useHistory();
 
   const handleClick = async (e: any) => {
     e.preventDefault();
-    console.log("userId: ", userId);
     createPost(userId, photoUrl, text);
     history.push(`/gallery`);
   };
 
-  const onChange = async (e: any) => {
-    const file = e.target.files[0];
+  const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(!e.target.files){
+      //handle error
+      throw new Error('no file chosen!')
+      return;
+    }
+    const file: File = e.target.files[0];
+    if(firebase.storage().ref()){
     const storageRef = firebase.storage().ref();
     const fileRef = storageRef.child(file.name);
-    await fileRef.put(file).then(() => {
-      console.log("SUCCESSSSSSS!!");
-    });
-    let id: string = firebase.auth().currentUser.uid;
-    console.log("id: ", id);
-    let url: string = await fileRef.getDownloadURL();
+    await fileRef.put(file).then(() => {});
+    if(firebase.auth().currentUser){
+    let id: string | null = firebase.auth().currentUser.uid;
+    let url: string | null = await fileRef.getDownloadURL();
     setPhotoUrl(url);
     setUserId(id);
+    }
+    } else {
+      return;
+    }
   };
 
   return (
     <div>
       <MainNav user={props.user} setUser={props.setUser} />
-      <input type="file" onChange={onChange} />
+      <input type="file" onChange={(e) => onChange(e)} />
       <textarea
         name="postinfo"
-        maxLength="250"
+        maxLength={250}
         onChange={(event) => setText(event.target.value)}
       ></textarea>
-      <button onClick={(e: any) => handleClick(e)}> Upload </button>
+      <button onClick={(e) => handleClick(e)}> Upload </button>
     </div>
   );
 };

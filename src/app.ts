@@ -14,10 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.sendFile(path.join(__dirname, "..", "src", "client", "index.html"));
-});
-
 app.use("/api", require("./server/api"));
 
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -29,7 +25,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
-  res.sendFile(path.join(__dirname, "..", "src", "client", "index.html"));
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
 const init = async () => {

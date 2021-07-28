@@ -39832,155 +39832,6 @@ module.exports = __webpack_require__(/*! ./modules/_core */ "./node_modules/babe
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/client/styles.css":
-/*!*********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/client/styles.css ***!
-  \*********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "Navbar styling */ #navcontain {\n  display: flex;\n  flex-direction: row;\n  align-content: space-around;\n  justify-items: center;\n}\n\n* {\n  background-color: #c3c9c5;\n}\n", "",{"version":3,"sources":["webpack://./src/client/styles.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,mBAAmB;EACnB,2BAA2B;EAC3B,qBAAqB;AACvB;;AAEA;EACE,yBAAyB;AAC3B","sourcesContent":["Navbar styling */ #navcontain {\n  display: flex;\n  flex-direction: row;\n  align-content: space-around;\n  justify-items: center;\n}\n\n* {\n  background-color: #c3c9c5;\n}\n"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/api.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-// eslint-disable-next-line func-names
-module.exports = function (cssWithMappingToString) {
-  var list = []; // return the list of modules as css string
-
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item);
-
-      if (item[2]) {
-        return "@media ".concat(item[2], " {").concat(content, "}");
-      }
-
-      return content;
-    }).join("");
-  }; // import a list of modules into the list
-  // eslint-disable-next-line func-names
-
-
-  list.i = function (modules, mediaQuery, dedupe) {
-    if (typeof modules === "string") {
-      // eslint-disable-next-line no-param-reassign
-      modules = [[null, modules, ""]];
-    }
-
-    var alreadyImportedModules = {};
-
-    if (dedupe) {
-      for (var i = 0; i < this.length; i++) {
-        // eslint-disable-next-line prefer-destructuring
-        var id = this[i][0];
-
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-
-    for (var _i = 0; _i < modules.length; _i++) {
-      var item = [].concat(modules[_i]);
-
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        // eslint-disable-next-line no-continue
-        continue;
-      }
-
-      if (mediaQuery) {
-        if (!item[2]) {
-          item[2] = mediaQuery;
-        } else {
-          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
-        }
-      }
-
-      list.push(item);
-    }
-  };
-
-  return list;
-};
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/cssWithMappingToString.js ***!
-  \************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-module.exports = function cssWithMappingToString(item) {
-  var _item = _slicedToArray(item, 4),
-      content = _item[1],
-      cssMapping = _item[3];
-
-  if (!cssMapping) {
-    return content;
-  }
-
-  if (typeof btoa === "function") {
-    // eslint-disable-next-line no-undef
-    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
-    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
-    var sourceMapping = "/*# ".concat(data, " */");
-    var sourceURLs = cssMapping.sources.map(function (source) {
-      return "/*# sourceURL=".concat(cssMapping.sourceRoot || "").concat(source, " */");
-    });
-    return [content].concat(sourceURLs).concat([sourceMapping]).join("\n");
-  }
-
-  return [content].join("\n");
-};
-
-/***/ }),
-
 /***/ "./node_modules/firebase/app/dist/index.esm.js":
 /*!*****************************************************!*\
   !*** ./node_modules/firebase/app/dist/index.esm.js ***!
@@ -74572,344 +74423,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./src/client/styles.css":
-/*!*******************************!*\
-  !*** ./src/client/styles.css ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./styles.css */ "./node_modules/css-loader/dist/cjs.js!./src/client/styles.css");
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__.default, options);
-
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__.default && _node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__.default.locals ? _node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__.default.locals : undefined);
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \****************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-var stylesInDom = [];
-
-function getIndexByIdentifier(identifier) {
-  var result = -1;
-
-  for (var i = 0; i < stylesInDom.length; i++) {
-    if (stylesInDom[i].identifier === identifier) {
-      result = i;
-      break;
-    }
-  }
-
-  return result;
-}
-
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
-
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var index = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3]
-    };
-
-    if (index !== -1) {
-      stylesInDom[index].references++;
-      stylesInDom[index].updater(obj);
-    } else {
-      stylesInDom.push({
-        identifier: identifier,
-        updater: addStyle(obj, options),
-        references: 1
-      });
-    }
-
-    identifiers.push(identifier);
-  }
-
-  return identifiers;
-}
-
-function addStyle(obj, options) {
-  var api = options.domAPI(options);
-  api.update(obj);
-  return function updateStyle(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
-        return;
-      }
-
-      api.update(obj = newObj);
-    } else {
-      api.remove();
-    }
-  };
-}
-
-module.exports = function (list, options) {
-  options = options || {};
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDom[index].references--;
-    }
-
-    var newLastIdentifiers = modulesToDom(newList, options);
-
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-
-      var _index = getIndexByIdentifier(_identifier);
-
-      if (stylesInDom[_index].references === 0) {
-        stylesInDom[_index].updater();
-
-        stylesInDom.splice(_index, 1);
-      }
-    }
-
-    lastIdentifiers = newLastIdentifiers;
-  };
-};
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
-  \********************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-var memo = {};
-/* istanbul ignore next  */
-
-function getTarget(target) {
-  if (typeof memo[target] === "undefined") {
-    var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
-
-    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-      try {
-        // This will throw an exception if access to iframe is blocked
-        // due to cross-origin restrictions
-        styleTarget = styleTarget.contentDocument.head;
-      } catch (e) {
-        // istanbul ignore next
-        styleTarget = null;
-      }
-    }
-
-    memo[target] = styleTarget;
-  }
-
-  return memo[target];
-}
-/* istanbul ignore next  */
-
-
-function insertBySelector(insert, style) {
-  var target = getTarget(insert);
-
-  if (!target) {
-    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-  }
-
-  target.appendChild(style);
-}
-
-module.exports = insertBySelector;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/insertStyleElement.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
-  \**********************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function insertStyleElement(options) {
-  var style = document.createElement("style");
-  options.setAttributes(style, options.attributes);
-  options.insert(style);
-  return style;
-}
-
-module.exports = insertStyleElement;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js":
-/*!**********************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
-  \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function setAttributesWithoutAttributes(style) {
-  var nonce =  true ? __webpack_require__.nc : 0;
-
-  if (nonce) {
-    style.setAttribute("nonce", nonce);
-  }
-}
-
-module.exports = setAttributesWithoutAttributes;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/styleDomAPI.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
-  \***************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function apply(style, options, obj) {
-  var css = obj.css;
-  var media = obj.media;
-  var sourceMap = obj.sourceMap;
-
-  if (media) {
-    style.setAttribute("media", media);
-  } else {
-    style.removeAttribute("media");
-  }
-
-  if (sourceMap && typeof btoa !== "undefined") {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  } // For old IE
-
-  /* istanbul ignore if  */
-
-
-  options.styleTagTransform(css, style);
-}
-
-function removeStyleElement(style) {
-  // istanbul ignore if
-  if (style.parentNode === null) {
-    return false;
-  }
-
-  style.parentNode.removeChild(style);
-}
-/* istanbul ignore next  */
-
-
-function domAPI(options) {
-  var style = options.insertStyleElement(options);
-  return {
-    update: function update(obj) {
-      apply(style, options, obj);
-    },
-    remove: function remove() {
-      removeStyleElement(style);
-    }
-  };
-}
-
-module.exports = domAPI;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/styleTagTransform.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
-  \*********************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function styleTagTransform(css, style) {
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    while (style.firstChild) {
-      style.removeChild(style.firstChild);
-    }
-
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-module.exports = styleTagTransform;
-
-/***/ }),
-
 /***/ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js":
 /*!****************************************************************!*\
   !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
@@ -74973,10 +74486,10 @@ function warning(condition, message) {
 
 /***/ }),
 
-/***/ "./src/client/components/AllPosts.tsx":
-/*!********************************************!*\
-  !*** ./src/client/components/AllPosts.tsx ***!
-  \********************************************/
+/***/ "./client/components/AllPosts.tsx":
+/*!****************************************!*\
+  !*** ./client/components/AllPosts.tsx ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75014,11 +74527,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
-const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
+const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./client/components/MainNav.tsx"));
+const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./client/components/callFunctions/posts.ts");
 const AllPosts = (props) => {
     const [images, setImages] = react_1.useState(null);
-    console.log("images: ", images);
     function grabPosts() {
         return __awaiter(this, void 0, void 0, function* () {
             const allImages = yield posts_1.getAllImages();
@@ -75041,10 +74553,10 @@ exports.default = AllPosts;
 
 /***/ }),
 
-/***/ "./src/client/components/CreatePost.tsx":
-/*!**********************************************!*\
-  !*** ./src/client/components/CreatePost.tsx ***!
-  \**********************************************/
+/***/ "./client/components/CreatePost.tsx":
+/*!******************************************!*\
+  !*** ./client/components/CreatePost.tsx ***!
+  \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75082,9 +74594,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const firebase_1 = __importDefault(__webpack_require__(/*! ../../config/firebase */ "./src/config/firebase.ts"));
-const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
-const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
+const firebase_1 = __importDefault(__webpack_require__(/*! ../config/firebase */ "./client/config/firebase.ts"));
+const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./client/components/callFunctions/posts.ts");
+const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./client/components/MainNav.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const CreatePost = (props) => {
     const [text, setText] = react_1.useState("");
@@ -75093,27 +74605,35 @@ const CreatePost = (props) => {
     const history = react_router_dom_1.useHistory();
     const handleClick = (e) => __awaiter(void 0, void 0, void 0, function* () {
         e.preventDefault();
-        console.log("userId: ", userId);
         posts_1.createPost(userId, photoUrl, text);
         history.push(`/gallery`);
     });
     const onChange = (e) => __awaiter(void 0, void 0, void 0, function* () {
+        if (!e.target.files) {
+            //handle error
+            throw new Error('no file chosen!');
+            return;
+        }
         const file = e.target.files[0];
-        const storageRef = firebase_1.default.storage().ref();
-        const fileRef = storageRef.child(file.name);
-        yield fileRef.put(file).then(() => {
-            console.log("SUCCESSSSSSS!!");
-        });
-        let id = firebase_1.default.auth().currentUser.uid;
-        console.log("id: ", id);
-        let url = yield fileRef.getDownloadURL();
-        setPhotoUrl(url);
-        setUserId(id);
+        if (firebase_1.default.storage().ref()) {
+            const storageRef = firebase_1.default.storage().ref();
+            const fileRef = storageRef.child(file.name);
+            yield fileRef.put(file).then(() => { });
+            if (firebase_1.default.auth().currentUser) {
+                let id = firebase_1.default.auth().currentUser.uid;
+                let url = yield fileRef.getDownloadURL();
+                setPhotoUrl(url);
+                setUserId(id);
+            }
+        }
+        else {
+            return;
+        }
     });
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
-        react_1.default.createElement("input", { type: "file", onChange: onChange }),
-        react_1.default.createElement("textarea", { name: "postinfo", maxLength: "250", onChange: (event) => setText(event.target.value) }),
+        react_1.default.createElement("input", { type: "file", onChange: (e) => onChange(e) }),
+        react_1.default.createElement("textarea", { name: "postinfo", maxLength: 250, onChange: (event) => setText(event.target.value) }),
         react_1.default.createElement("button", { onClick: (e) => handleClick(e) }, " Upload ")));
 };
 exports.default = CreatePost;
@@ -75121,130 +74641,9 @@ exports.default = CreatePost;
 
 /***/ }),
 
-/***/ "./src/client/components/EditAbout.tsx":
-/*!*********************************************!*\
-  !*** ./src/client/components/EditAbout.tsx ***!
-  \*********************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
-const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
-const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-const EditAbout = (props) => {
-    const [about, setAbout] = react_1.useState("");
-    const [ring, setRing] = react_1.useState("");
-    const [destination, setDestination] = react_1.useState("");
-    const [info, setInfo] = react_1.useState(null);
-    const history = react_router_dom_1.useHistory();
-    function grabInfo() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const oldInfo = yield singleUser_1.getInfo(props.user.id);
-            yield setInfo(oldInfo);
-            console.log("info: ", info);
-            // setRing(info.ring)
-            // setDestination(info.destination)
-            // setAbout(info.aboutMe)
-            console.log('ring: ', ring, 'about: ', about, 'destination', destination);
-        });
-    }
-    react_1.useEffect(() => {
-        if (!info && props.user) {
-            grabInfo();
-        }
-    });
-    function handleSubmit() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let obj = {
-                id: props.user.id,
-                aboutMe: about,
-                ring: ring,
-                destination: destination,
-                userId: props.user.id,
-            };
-            singleUser_1.editAbout(obj);
-            history.push(`/gallery`);
-        });
-    }
-    return (react_1.default.createElement("div", null,
-        react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
-        info ? (react_1.default.createElement("div", null,
-            react_1.default.createElement("form", { onSubmit: handleSubmit },
-                react_1.default.createElement("label", { htmlFor: "aboutme" }, "About Me: "),
-                react_1.default.createElement("input", { type: "text", name: "aboutme", id: "aboutme", defaultValue: info.aboutMe, onChange: (event) => setAbout(event.target.value) }),
-                react_1.default.createElement("label", { htmlFor: "ring" },
-                    "My Ring, aka what I'm bringing with me on this journey:",
-                    " "),
-                react_1.default.createElement("input", { type: "text", name: "ring", defaultValue: info.ring, onChange: (event) => setRing(event.target.value) }),
-                react_1.default.createElement("label", { htmlFor: "destination" }, "My Destination: "),
-                react_1.default.createElement("input", { type: "text", name: "destination", id: "destination", defaultValue: info.destination, onChange: (event) => setDestination(event.target.value) }),
-                react_1.default.createElement("button", { type: "submit" }, " Submit ")))) : null));
-};
-exports.default = EditAbout;
-
-
-/***/ }),
-
-/***/ "./src/client/components/Fail.tsx":
-/*!****************************************!*\
-  !*** ./src/client/components/Fail.tsx ***!
-  \****************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const Fail = (props) => {
-    if (props.error === "")
-        return null;
-    return react_1.default.createElement("p", null, props.error);
-};
-exports.default = Fail;
-
-
-/***/ }),
-
-/***/ "./src/client/components/Login.tsx":
+/***/ "./client/components/EditAbout.tsx":
 /*!*****************************************!*\
-  !*** ./src/client/components/Login.tsx ***!
+  !*** ./client/components/EditAbout.tsx ***!
   \*****************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -75283,10 +74682,136 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./client/components/callFunctions/singleUser.ts");
+const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./client/components/MainNav.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-const firebase_1 = __webpack_require__(/*! ../../config/firebase */ "./src/config/firebase.ts");
-const Fail_1 = __importDefault(__webpack_require__(/*! ./Fail */ "./src/client/components/Fail.tsx"));
-const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
+const EditAbout = (props) => {
+    const [about, setAbout] = react_1.useState("");
+    const [ring, setRing] = react_1.useState("");
+    const [destination, setDestination] = react_1.useState("");
+    const [info, setInfo] = react_1.useState(null);
+    const history = react_router_dom_1.useHistory();
+    function grabInfo() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (props.user.id) {
+                const oldInfo = yield singleUser_1.getInfo(props.user.id);
+                yield setInfo(oldInfo);
+            }
+            else {
+                return;
+            }
+        });
+    }
+    react_1.useEffect(() => {
+        if (!info && props.user) {
+            grabInfo();
+        }
+    });
+    function handleSubmit() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (props.user.id) {
+                let obj = {
+                    id: props.user.id,
+                    aboutMe: about,
+                    ring: ring,
+                    destination: destination,
+                    userId: props.user.id,
+                };
+                singleUser_1.editAbout(obj);
+                history.push(`/gallery`);
+            }
+            else {
+                return;
+            }
+        });
+    }
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
+        info ? (react_1.default.createElement("div", null,
+            react_1.default.createElement("form", { onSubmit: handleSubmit },
+                react_1.default.createElement("label", { htmlFor: "aboutme" }, "About Me: "),
+                react_1.default.createElement("input", { type: "text", name: "aboutme", id: "aboutme", defaultValue: info.aboutMe, onChange: (event) => setAbout(event.target.value) }),
+                react_1.default.createElement("label", { htmlFor: "ring" },
+                    "My Ring, aka what I'm bringing with me on this journey:",
+                    " "),
+                react_1.default.createElement("input", { type: "text", name: "ring", defaultValue: info.ring, onChange: (event) => setRing(event.target.value) }),
+                react_1.default.createElement("label", { htmlFor: "destination" }, "My Destination: "),
+                react_1.default.createElement("input", { type: "text", name: "destination", id: "destination", defaultValue: info.destination, onChange: (event) => setDestination(event.target.value) }),
+                react_1.default.createElement("button", { type: "submit" }, " Submit ")))) : null));
+};
+exports.default = EditAbout;
+
+
+/***/ }),
+
+/***/ "./client/components/Fail.tsx":
+/*!************************************!*\
+  !*** ./client/components/Fail.tsx ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const Fail = (props) => {
+    if (props.error === "")
+        return null;
+    return react_1.default.createElement("p", null, props.error);
+};
+exports.default = Fail;
+
+
+/***/ }),
+
+/***/ "./client/components/Login.tsx":
+/*!*************************************!*\
+  !*** ./client/components/Login.tsx ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+const firebase_1 = __webpack_require__(/*! ../config/firebase */ "./client/config/firebase.ts");
+const Fail_1 = __importDefault(__webpack_require__(/*! ./Fail */ "./client/components/Fail.tsx"));
+const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./client/components/callFunctions/singleUser.ts");
 const Login = (props) => {
     const [loggingIn, setLoggingIn] = react_1.useState(false);
     const [email, setEmail] = react_1.useState("");
@@ -75331,10 +74856,10 @@ exports.default = Login;
 
 /***/ }),
 
-/***/ "./src/client/components/LoginNav.tsx":
-/*!********************************************!*\
-  !*** ./src/client/components/LoginNav.tsx ***!
-  \********************************************/
+/***/ "./client/components/LoginNav.tsx":
+/*!****************************************!*\
+  !*** ./client/components/LoginNav.tsx ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75356,10 +74881,10 @@ exports.default = LoginNav;
 
 /***/ }),
 
-/***/ "./src/client/components/Main.tsx":
-/*!****************************************!*\
-  !*** ./src/client/components/Main.tsx ***!
-  \****************************************/
+/***/ "./client/components/Main.tsx":
+/*!************************************!*\
+  !*** ./client/components/Main.tsx ***!
+  \************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75388,7 +74913,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const LoginNav_1 = __importDefault(__webpack_require__(/*! ./LoginNav */ "./src/client/components/LoginNav.tsx"));
+const LoginNav_1 = __importDefault(__webpack_require__(/*! ./LoginNav */ "./client/components/LoginNav.tsx"));
 class Main extends React.Component {
     render() {
         return (React.createElement("div", null,
@@ -75401,10 +74926,10 @@ exports.default = Main;
 
 /***/ }),
 
-/***/ "./src/client/components/MainNav.tsx":
-/*!*******************************************!*\
-  !*** ./src/client/components/MainNav.tsx ***!
-  \*******************************************/
+/***/ "./client/components/MainNav.tsx":
+/*!***************************************!*\
+  !*** ./client/components/MainNav.tsx ***!
+  \***************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75415,7 +74940,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-const firebase_1 = __importDefault(__webpack_require__(/*! ../../config/firebase */ "./src/config/firebase.ts"));
+const firebase_1 = __importDefault(__webpack_require__(/*! ../config/firebase */ "./client/config/firebase.ts"));
 const MainNav = (props) => {
     // console.log('nav user: ', props.user)
     const history = react_router_dom_1.useHistory();
@@ -75446,10 +74971,10 @@ exports.default = MainNav;
 
 /***/ }),
 
-/***/ "./src/client/components/ProfilePage.tsx":
-/*!***********************************************!*\
-  !*** ./src/client/components/ProfilePage.tsx ***!
-  \***********************************************/
+/***/ "./client/components/ProfilePage.tsx":
+/*!*******************************************!*\
+  !*** ./client/components/ProfilePage.tsx ***!
+  \*******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75488,9 +75013,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
-const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
-const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
+const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./client/components/callFunctions/singleUser.ts");
+const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./client/components/callFunctions/posts.ts");
+const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./client/components/MainNav.tsx"));
 const ProfilePage = (props) => {
     const [posts, setPosts] = react_1.useState(null);
     const [loading, setLoading] = react_1.useState(true);
@@ -75527,9 +75052,14 @@ const ProfilePage = (props) => {
         }
     });
     function handleDelete() {
-        posts_1.deletePost(props.user.id);
-        grabPosts(props.user.id);
-        history.go(0);
+        if (props.user.id) {
+            posts_1.deletePost(props.user.id);
+            grabPosts(props.user.id);
+            history.go(0);
+        }
+        else {
+            return;
+        }
     }
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
@@ -75560,10 +75090,10 @@ exports.default = ProfilePage;
 
 /***/ }),
 
-/***/ "./src/client/components/Routes.tsx":
-/*!******************************************!*\
-  !*** ./src/client/components/Routes.tsx ***!
-  \******************************************/
+/***/ "./client/components/Routes.tsx":
+/*!**************************************!*\
+  !*** ./client/components/Routes.tsx ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75593,14 +75123,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-const Main_1 = __importDefault(__webpack_require__(/*! ./Main */ "./src/client/components/Main.tsx"));
-const Signup_1 = __importDefault(__webpack_require__(/*! ./Signup */ "./src/client/components/Signup.tsx"));
-const Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./src/client/components/Login.tsx"));
-const ProfilePage_1 = __importDefault(__webpack_require__(/*! ./ProfilePage */ "./src/client/components/ProfilePage.tsx"));
-const CreatePost_1 = __importDefault(__webpack_require__(/*! ./CreatePost */ "./src/client/components/CreatePost.tsx"));
-const AllPosts_1 = __importDefault(__webpack_require__(/*! ./AllPosts */ "./src/client/components/AllPosts.tsx"));
-const EditAbout_1 = __importDefault(__webpack_require__(/*! ./EditAbout */ "./src/client/components/EditAbout.tsx"));
-__webpack_require__(/*! ../styles.css */ "./src/client/styles.css");
+const Main_1 = __importDefault(__webpack_require__(/*! ./Main */ "./client/components/Main.tsx"));
+const Signup_1 = __importDefault(__webpack_require__(/*! ./Signup */ "./client/components/Signup.tsx"));
+const Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./client/components/Login.tsx"));
+const ProfilePage_1 = __importDefault(__webpack_require__(/*! ./ProfilePage */ "./client/components/ProfilePage.tsx"));
+const CreatePost_1 = __importDefault(__webpack_require__(/*! ./CreatePost */ "./client/components/CreatePost.tsx"));
+const AllPosts_1 = __importDefault(__webpack_require__(/*! ./AllPosts */ "./client/components/AllPosts.tsx"));
+const EditAbout_1 = __importDefault(__webpack_require__(/*! ./EditAbout */ "./client/components/EditAbout.tsx"));
 const Routes = (props) => {
     const [user, setUser] = react_1.useState({});
     return (react_1.default.createElement("div", null,
@@ -75625,10 +75154,10 @@ exports.default = Routes;
 
 /***/ }),
 
-/***/ "./src/client/components/Signup.tsx":
-/*!******************************************!*\
-  !*** ./src/client/components/Signup.tsx ***!
-  \******************************************/
+/***/ "./client/components/Signup.tsx":
+/*!**************************************!*\
+  !*** ./client/components/Signup.tsx ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75667,9 +75196,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-const firebase_1 = __webpack_require__(/*! ../../config/firebase */ "./src/config/firebase.ts");
-const Fail_1 = __importDefault(__webpack_require__(/*! ./Fail */ "./src/client/components/Fail.tsx"));
-const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
+const firebase_1 = __webpack_require__(/*! ../config/firebase */ "./client/config/firebase.ts");
+const Fail_1 = __importDefault(__webpack_require__(/*! ./Fail */ "./client/components/Fail.tsx"));
+const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./client/components/callFunctions/singleUser.ts");
 const Signup = (props) => {
     const [signup, setSignup] = react_1.useState(false);
     const [email, setEmail] = react_1.useState("");
@@ -75746,10 +75275,10 @@ exports.default = Signup;
 
 /***/ }),
 
-/***/ "./src/client/components/callFunctions/posts.ts":
-/*!******************************************************!*\
-  !*** ./src/client/components/callFunctions/posts.ts ***!
-  \******************************************************/
+/***/ "./client/components/callFunctions/posts.ts":
+/*!**************************************************!*\
+  !*** ./client/components/callFunctions/posts.ts ***!
+  \**************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75832,10 +75361,10 @@ exports.getAllImages = getAllImages;
 
 /***/ }),
 
-/***/ "./src/client/components/callFunctions/singleUser.ts":
-/*!***********************************************************!*\
-  !*** ./src/client/components/callFunctions/singleUser.ts ***!
-  \***********************************************************/
+/***/ "./client/components/callFunctions/singleUser.ts":
+/*!*******************************************************!*\
+  !*** ./client/components/callFunctions/singleUser.ts ***!
+  \*******************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75929,10 +75458,62 @@ exports.editAbout = editAbout;
 
 /***/ }),
 
-/***/ "./src/client/index.tsx":
-/*!******************************!*\
-  !*** ./src/client/index.tsx ***!
-  \******************************/
+/***/ "./client/config/config.ts":
+/*!*********************************!*\
+  !*** ./client/config/config.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const config = {
+    firebase: {
+        apiKey: "AIzaSyCoCH5PHOUe3zmLDAIzRjLsp6umUNzsimU",
+        authDomain: "twitchspeakfriend.firebaseapp.com",
+        projectId: "twitchspeakfriend",
+        storageBucket: "twitchspeakfriend.appspot.com",
+        messagingSenderId: "626100278677",
+        appId: "1:626100278677:web:75a98f5643e60a1459d29c",
+    },
+};
+exports.default = config;
+
+
+/***/ }),
+
+/***/ "./client/config/firebase.ts":
+/*!***********************************!*\
+  !*** ./client/config/firebase.ts ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.auth = exports.Providers = void 0;
+const app_1 = __importDefault(__webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.esm.js"));
+__webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+__webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
+__webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/index.esm.js");
+const config_1 = __importDefault(__webpack_require__(/*! ./config */ "./client/config/config.ts"));
+const Firebase = app_1.default.initializeApp(config_1.default.firebase);
+exports.Providers = {
+    google: new app_1.default.auth.GoogleAuthProvider(),
+};
+exports.auth = app_1.default.auth();
+exports.default = app_1.default;
+
+
+/***/ }),
+
+/***/ "./client/index.tsx":
+/*!**************************!*\
+  !*** ./client/index.tsx ***!
+  \**************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -75962,62 +75543,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
-const Routes_1 = __importDefault(__webpack_require__(/*! ./components/Routes */ "./src/client/components/Routes.tsx"));
+const Routes_1 = __importDefault(__webpack_require__(/*! ./components/Routes */ "./client/components/Routes.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 react_dom_1.default.render(React.createElement(react_router_dom_1.BrowserRouter, null,
     React.createElement(Routes_1.default, null)), document.getElementById("app"));
-
-
-/***/ }),
-
-/***/ "./src/config/config.ts":
-/*!******************************!*\
-  !*** ./src/config/config.ts ***!
-  \******************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const config = {
-    firebase: {
-        apiKey: "AIzaSyCoCH5PHOUe3zmLDAIzRjLsp6umUNzsimU",
-        authDomain: "twitchspeakfriend.firebaseapp.com",
-        projectId: "twitchspeakfriend",
-        storageBucket: "twitchspeakfriend.appspot.com",
-        messagingSenderId: "626100278677",
-        appId: "1:626100278677:web:75a98f5643e60a1459d29c"
-    },
-};
-exports.default = config;
-
-
-/***/ }),
-
-/***/ "./src/config/firebase.ts":
-/*!********************************!*\
-  !*** ./src/config/firebase.ts ***!
-  \********************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.auth = exports.Providers = void 0;
-const app_1 = __importDefault(__webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.esm.js"));
-__webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
-__webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
-__webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/index.esm.js");
-const config_1 = __importDefault(__webpack_require__(/*! ./config */ "./src/config/config.ts"));
-const Firebase = app_1.default.initializeApp(config_1.default.firebase);
-exports.Providers = {
-    google: new app_1.default.auth.GoogleAuthProvider(),
-};
-exports.auth = app_1.default.auth();
-exports.default = app_1.default;
 
 
 /***/ }),
@@ -76364,7 +75893,7 @@ function valueEqual(a, b) {
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
+/******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
@@ -76435,7 +75964,7 @@ function valueEqual(a, b) {
 /******/ 	// Load entry module and return exports
 /******/ 	__webpack_require__("./node_modules/babel-polyfill/lib/index.js");
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/client/index.tsx");
+/******/ 	var __webpack_exports__ = __webpack_require__("./client/index.tsx");
 /******/ 	
 /******/ })()
 ;

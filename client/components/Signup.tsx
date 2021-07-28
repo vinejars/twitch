@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../../config/firebase";
+import { auth } from "../config/firebase";
 import Fail from "./Fail";
-import { User } from "../../server/db/index";
 import axios from "axios";
 import {
   createUser,
