@@ -75468,12 +75468,12 @@ exports.editAbout = editAbout;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const config = {
     firebase: {
-        apiKey: process.env.FIREBASE_API_KEY,
-        authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-        projectId: process.env.FIREBASE_PROJECT_ID,
-        storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-        messagingSenderId: process.env.FIREBASE_MESSAGING_SENDERID,
-        appId: process.env.FIREBASE_APP_ID,
+        apiKey: "AIzaSyCoCH5PHOUe3zmLDAIzRjLsp6umUNzsimU",
+        authDomain: "twitchspeakfriend.firebaseapp.com",
+        projectId: "twitchspeakfriend",
+        storageBucket: "speakfriend-a4c8d.appspot.com",
+        messagingSenderId: "626100278677",
+        appId: "1:626100278677:web:75a98f5643e60a1459d29c",
     },
 };
 exports.default = config;

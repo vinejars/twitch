@@ -17,6 +17,7 @@
     "bluebird": "^3.7.2",
     "cli": "^1.0.1",
     "dotenv": "^10.0.0",
+    "dotenv-cli": "^4.0.0",
     "express": "^4.17.1",
     "firebase": "^8.8.0",
     "path": "^0.12.7",
@@ -47,7 +48,7 @@
     "start:dev": "nodemon src/app.ts & npm run build:watch",
     "build:server": "tsc -p .",
     "build:watch": "webpack -w",
-    "build:client": "webpack build",
+    "build:client": "dotenv webpack build",
     "seed": "ts-node src/seed.ts"
   },
   "author": "Em Comeau",
