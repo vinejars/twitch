@@ -17,7 +17,7 @@ const router = express_1.default.Router();
 const index_1 = require("../db/index");
 //GET ROUTES
 //route to get single user's info for profile page
-router.get("/user/:userId", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/user/:userId', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield index_1.User.findByPk(req.params.userId, {
             include: [index_1.ProfileInfo],
@@ -29,7 +29,7 @@ router.get("/user/:userId", (req, res, next) => __awaiter(void 0, void 0, void 0
     }
 }));
 //route to get all posts belonging to a specific user
-router.get("/allposts/:userId", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/allposts/:userId', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const posts = yield index_1.Post.findAll({
             where: { userId: req.params.userId },
@@ -51,7 +51,7 @@ router.get(`/user/post/:userId`, (req, res, next) => __awaiter(void 0, void 0, v
     }
 }));
 //route to get all posts in database for gallery
-router.get("/gallery", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/gallery', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const posts = yield index_1.Post.findAll();
         res.json(posts);
@@ -62,7 +62,7 @@ router.get("/gallery", (req, res, next) => __awaiter(void 0, void 0, void 0, fun
 }));
 //POST ROUTES
 //route to create a user
-router.post("/create", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/create', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield index_1.User.create({
             email: req.body.email,
@@ -77,7 +77,7 @@ router.post("/create", (req, res, next) => __awaiter(void 0, void 0, void 0, fun
     }
 }));
 //route to create a profile info section
-router.post("/createabout", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/createabout', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield index_1.User.findByPk(req.body.id);
         if (!user) {
@@ -100,19 +100,21 @@ router.post("/createabout", (req, res, next) => __awaiter(void 0, void 0, void 0
     }
 }));
 //create a post
-router.post("/post", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/post', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const lastPost = yield index_1.Post.findAll({
-            raw: true,
-            limit: 1,
-            order: [["createdAt", "DESC"]],
-        });
+        // const lastPost = await Post.findAll({
+        // 	raw: true,
+        // 	limit: 1,
+        // 	order: [['createdAt', 'DESC']],
+        // });
+        // console.log(lastPost);
         const post = yield index_1.Post.create({
             imageUrl: req.body.imageUrl,
             text: req.body.text,
             userId: req.body.userId,
-            id: lastPost[0].id + 1,
+            id: 890,
         });
+        console.log('this is req.body: ', req.body);
         res.json(post);
     }
     catch (error) {
@@ -121,7 +123,7 @@ router.post("/post", (req, res, next) => __awaiter(void 0, void 0, void 0, funct
 }));
 //PUT ROUTES
 //route to edit About Me info for a user
-router.put("/editabout", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.put('/editabout', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const info = yield index_1.ProfileInfo.findByPk(req.body.id);
         if (!info) {
@@ -135,7 +137,7 @@ router.put("/editabout", (req, res, next) => __awaiter(void 0, void 0, void 0, f
 }));
 //DELETE ROUTES
 //route to delete a post
-router.delete("/deletepost/:userId", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.delete('/deletepost/:userId', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const post = yield index_1.Post.findOne({
             where: { userId: req.params.userId },
