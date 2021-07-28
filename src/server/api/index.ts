@@ -118,7 +118,7 @@ router.post(
 				order: [['createdAt', 'DESC']],
 			});
 
-       let newId = lastPost[0].id
+       let newId = lastPost[0].id + 1
 
 
 			const post = await Post.create(
