@@ -17,23 +17,24 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
  const [userId, setUserId] = useState<string>('')
  const history = useHistory()
 // console.log('createpost user: ', props.user)
-const handleClick = (e: any) =>{
+const handleClick = async (e: any) =>{
   e.preventDefault()
+  console.log('userId: ', userId)
   createPost(userId, photoUrl, text)
-  history.push(`/user/${userId}`)
+  history.push(`/gallery`)
 }
 
   const onChange = async (e: any) => {
     const file = e.target.files[0];
     const storageRef = firebase.storage().ref()
     const fileRef = storageRef.child(file.name)
-    fileRef.put(file).then(() => {
+    await fileRef.put(file).then(() => {
       console.log("SUCCESSSSSSS!!")
     })
 
     let id: string = firebase.auth().currentUser.uid;
+    console.log('id: ', id)
     let url: string = await fileRef.getDownloadURL()
-    console.log('fileRef: ', fileRef)
     setPhotoUrl(url)
     setUserId(id)
   } 

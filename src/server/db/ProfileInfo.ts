@@ -18,7 +18,7 @@ interface ProfileInfoInstance
    const profileinfo= db.define<ProfileInfoInstance>('profileinfo', 
     {
         id:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             primaryKey: true,
             allowNull: false,
         },

@@ -29,3 +29,18 @@ export const getPosts = async function(userId:string){
         return null;
     }
 }
+
+//function to get all posts
+export const getAllImages = async function(){
+    try {
+        let images: Array<PostType> = [{}]
+        await axios.get("/api/gallery/")
+  .then((response) => { images = response.data })
+    return images
+    console.log('function Images: ', images)
+        
+    } catch (error) {
+       console.log(error) 
+       return null;
+    }
+}

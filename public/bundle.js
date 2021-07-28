@@ -74981,29 +74981,6 @@ function warning(condition, message) {
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
-const AllPosts = (props) => {
-    return (react_1.default.createElement("div", null,
-        react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser })));
-};
-exports.default = AllPosts;
-
-
-/***/ }),
-
-/***/ "./src/client/components/CreateAbout.tsx":
-/*!***********************************************!*\
-  !*** ./src/client/components/CreateAbout.tsx ***!
-  \***********************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -75023,28 +75000,43 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
 const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
-const CreateAbout = props => {
-    const [about, setAbout] = react_1.useState('');
-    const [ring, setRing] = react_1.useState('');
-    const [destination, setDestination] = react_1.useState('');
-    function handleSubmit(e) {
-        e.preventDefault();
-        posts_1.createAbout(props.user.id, about, ring, destination);
+const AllPosts = (props) => {
+    const [images, setImages] = react_1.useState(null);
+    console.log('images: ', images);
+    function grabPosts() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const allImages = yield posts_1.getAllImages();
+            setImages(allImages);
+        });
     }
+    react_1.useEffect(() => {
+        if (!images) {
+            grabPosts();
+        }
+    });
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement("form", { onSubmit: (e) => handleSubmit(e) },
-            react_1.default.createElement("label", { htmlFor: 'aboutme' }, "About Me: "),
-            react_1.default.createElement("input", { type: 'text', name: 'aboutme', id: 'aboutme', value: about, onChange: (event) => setAbout(event.target.value) }),
-            react_1.default.createElement("label", { htmlFor: 'ring' }, "My Ring, aka what I'm bringing with me on this journey: "),
-            react_1.default.createElement("input", { type: 'text', name: 'ring', id: 'ring', value: ring, onChange: (event) => setRing(event.target.value) }),
-            react_1.default.createElement("label", { htmlFor: 'destination' }, "My Destination: "),
-            react_1.default.createElement("input", { type: 'text', name: 'destination', id: 'destination', value: destination, onChange: (event) => setDestination(event.target.value) }),
-            react_1.default.createElement("button", { type: 'submit' }, " Submit!"))));
+        react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
+        !images ? (null) : (react_1.default.createElement("div", { id: 'galleryoutside' }, images.map((image) => (react_1.default.createElement("div", { className: 'image-outside', key: image.id },
+            react_1.default.createElement("img", { src: image.imageUrl, width: 300 }),
+            react_1.default.createElement("p", null, image.text))))))));
 };
-exports.default = CreateAbout;
+exports.default = AllPosts;
 
 
 /***/ }),
@@ -75100,21 +75092,22 @@ const CreatePost = (props) => {
     const [userId, setUserId] = react_1.useState('');
     const history = react_router_dom_1.useHistory();
     // console.log('createpost user: ', props.user)
-    const handleClick = (e) => {
+    const handleClick = (e) => __awaiter(void 0, void 0, void 0, function* () {
         e.preventDefault();
+        console.log('userId: ', userId);
         posts_1.createPost(userId, photoUrl, text);
-        history.push(`/user/${userId}`);
-    };
+        history.push(`/gallery`);
+    });
     const onChange = (e) => __awaiter(void 0, void 0, void 0, function* () {
         const file = e.target.files[0];
         const storageRef = firebase_1.default.storage().ref();
         const fileRef = storageRef.child(file.name);
-        fileRef.put(file).then(() => {
+        yield fileRef.put(file).then(() => {
             console.log("SUCCESSSSSSS!!");
         });
         let id = firebase_1.default.auth().currentUser.uid;
+        console.log('id: ', id);
         let url = yield fileRef.getDownloadURL();
-        console.log('fileRef: ', fileRef);
         setPhotoUrl(url);
         setUserId(id);
     });
@@ -75394,40 +75387,63 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
 const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
-const CreateAbout_1 = __importDefault(__webpack_require__(/*! ./CreateAbout */ "./src/client/components/CreateAbout.tsx"));
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
 const ProfilePage = (props) => {
     const [posts, setPosts] = react_1.useState(null);
     const [loading, setLoading] = react_1.useState(true);
+    const [info, setInfo] = react_1.useState(null);
     function grabUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const loggedInUser = yield singleUser_1.getSingleUser(id);
             props.setUser(loggedInUser);
         });
     }
+    function grabInfo(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const profileInfo = yield singleUser_1.getInfo(id);
+            setInfo(profileInfo);
+        });
+    }
     function grabPosts(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const gotPosts = yield posts_1.getPosts(id);
-            if (!posts) {
-                setPosts(gotPosts);
-                //console.log('gotposts: ', posts)
-            }
+            setPosts(gotPosts);
+            //console.log('gotposts: ', posts)
         });
     }
     react_1.useEffect(() => {
-        if (!props.user.username | !posts) {
+        if (!props.user.username) {
             grabUser(window.localStorage.id);
             setLoading(false);
         }
-    });
-    react_1.useEffect(() => {
         if (!posts) {
             grabPosts(window.localStorage.id);
+        }
+        if (!info) {
+            grabInfo(window.localStorage.id);
         }
     });
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
-        react_1.default.createElement(CreateAbout_1.default, { user: props.user }),
+        !info ? (null) : (react_1.default.createElement("div", { id: 'aboutme', key: info.id },
+            react_1.default.createElement("h3", null, "About Me: "),
+            react_1.default.createElement("p", null,
+                " ",
+                info.aboutMe,
+                " "),
+            react_1.default.createElement("h3", null, " My Ring "),
+            react_1.default.createElement("p", null,
+                " ",
+                info.ring,
+                " "),
+            react_1.default.createElement("h3", null,
+                " ",
+                info.destination,
+                " "),
+            react_1.default.createElement("p", null,
+                " ",
+                info.destination,
+                " "))),
         !posts ? (null) : (react_1.default.createElement("div", null, posts.map((post) => (react_1.default.createElement("div", { key: post.id },
             react_1.default.createElement("img", { src: post.imageUrl, width: 300 }),
             react_1.default.createElement("p", null, post.text))))))));
@@ -75551,6 +75567,9 @@ const Signup = (props) => {
     const [password, setPassword] = react_1.useState('');
     const [confirm, setConfirm] = react_1.useState('');
     const [error, setError] = react_1.useState('');
+    const [about, setAbout] = react_1.useState('');
+    const [ring, setRing] = react_1.useState('');
+    const [destination, setDestination] = react_1.useState('');
     const history = react_router_dom_1.useHistory();
     const signUpWithEmailAndPassword = (e) => __awaiter(void 0, void 0, void 0, function* () {
         e.preventDefault();
@@ -75565,6 +75584,7 @@ const Signup = (props) => {
             singleUser_1.createUser(username, email, result.user.uid);
             const loggedUser = yield singleUser_1.getSingleUser(result.user.uid);
             props.setUser(loggedUser);
+            singleUser_1.createAbout(result.user.uid, about, ring, destination);
             history.push(`/login`);
         }))
             .catch((error) => {
@@ -75596,6 +75616,12 @@ const Signup = (props) => {
             react_1.default.createElement("label", { htmlFor: 'confirm' }, "Make sure it's strong! (Confirm:)"),
             react_1.default.createElement("input", { autoComplete: 'new-password', type: 'password', name: 'confirm', id: 'confirm', value: confirm, onChange: (event) => setConfirm(event.target.value) }),
             react_1.default.createElement("br", null),
+            react_1.default.createElement("label", { htmlFor: 'aboutme' }, "About Me: "),
+            react_1.default.createElement("input", { type: 'text', name: 'aboutme', id: 'aboutme', value: about, onChange: (event) => setAbout(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: 'ring' }, "My Ring, aka what I'm bringing with me on this journey: "),
+            react_1.default.createElement("input", { type: 'text', name: 'ring', id: 'ring', value: ring, onChange: (event) => setRing(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: 'destination' }, "My Destination: "),
+            react_1.default.createElement("input", { type: 'text', name: 'destination', id: 'destination', value: destination, onChange: (event) => setDestination(event.target.value) }),
             react_1.default.createElement("button", null, "Sign Up!"),
             react_1.default.createElement("p", null,
                 "If you've already spoken friend, enter here:",
@@ -75629,7 +75655,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getPosts = exports.createPost = void 0;
+exports.getAllImages = exports.getPosts = exports.createPost = void 0;
 const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 //function to create a post
 function createPost(userId, imageUrl, text) {
@@ -75659,6 +75685,23 @@ const getPosts = function (userId) {
     });
 };
 exports.getPosts = getPosts;
+//function to get all posts
+const getAllImages = function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            let images = [{}];
+            yield axios_1.default.get("/api/gallery/")
+                .then((response) => { images = response.data; });
+            return images;
+            console.log('function Images: ', images);
+        }
+        catch (error) {
+            console.log(error);
+            return null;
+        }
+    });
+};
+exports.getAllImages = getAllImages;
 
 
 /***/ }),
@@ -75684,7 +75727,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createAbout = exports.createUser = exports.getSingleUser = void 0;
+exports.createAbout = exports.createUser = exports.getInfo = exports.getSingleUser = void 0;
 const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 //function to retrieve a single user from database
 const getSingleUser = function (id) {
@@ -75699,6 +75742,19 @@ const getSingleUser = function (id) {
     });
 };
 exports.getSingleUser = getSingleUser;
+//function to retrieve a user's profile info
+const getInfo = function (id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const { data } = yield axios_1.default.get(`/api/user/post/${id}`);
+            return data;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+};
+exports.getInfo = getInfo;
 //function to create a user in the database
 function createUser(username, email, firebase) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -75714,10 +75770,8 @@ exports.createUser = createUser;
 //function to create About Section in profile
 function createAbout(id, about, ring, destination) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log('am i getting here?');
         try {
             const info = yield axios_1.default.post('/api/createabout', { id, about, ring, destination });
-            console.log('info: ', info);
             return info;
         }
         catch (error) {
@@ -75783,12 +75837,12 @@ react_dom_1.default.render(React.createElement(react_router_dom_1.BrowserRouter,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const config = {
     firebase: {
-        apiKey: process.env.API_KEY,
-        authDomain: process.env.AUTH_DOMAIN,
-        projectId: process.env.PROJECT_ID,
-        storageBucket: process.env.STORAGE_BUCKET,
-        messagingSenderId: process.env.SENDER_ID,
-        appId: process.env.APP_ID
+        apiKey: "AIzaSyCoCH5PHOUe3zmLDAIzRjLsp6umUNzsimU",
+        authDomain: "twitchspeakfriend.firebaseapp.com",
+        projectId: "twitchspeakfriend",
+        storageBucket: "twitchspeakfriend.appspot.com",
+        messagingSenderId: "626100278677",
+        appId: "1:626100278677:web:75a98f5643e60a1459d29c"
     },
 };
 exports.default = config;

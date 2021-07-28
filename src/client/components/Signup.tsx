@@ -4,11 +4,11 @@ import { auth } from '../../config/firebase';
 import Fail from './Fail';
 import { User } from '../../server/db/index';
 import axios from 'axios';
-import { createUser, getSingleUser } from './callFunctions/singleUser';
+import { createUser, getSingleUser, createAbout, UserType} from './callFunctions/singleUser';
 
 interface SignupProps{
-	user: Object;
-	setUser: Function;
+	user: UserType;
+	setUser: (user: UserType) => void;
 }
 
 const Signup: React.FunctionComponent<SignupProps> = (props) => {
@@ -18,10 +18,13 @@ const Signup: React.FunctionComponent<SignupProps> = (props) => {
 	const [password, setPassword] = useState<string>('');
 	const [confirm, setConfirm] = useState<string>('');
 	const [error, setError] = useState<string>('');
+	const [about, setAbout] = useState<string>('')
+	const [ring, setRing] = useState<string>('')
+	const [destination, setDestination] = useState<string>('')
 	const history = useHistory();
 
 	const signUpWithEmailAndPassword = async (e: any) => {
-		e.preventDefault();
+		e.preventDefault()
 		if (error !== '') setError('');
 		if (password !== confirm) setError('Passwords do not match!');
 		setSignup(true);
@@ -31,6 +34,7 @@ const Signup: React.FunctionComponent<SignupProps> = (props) => {
 				createUser(username, email, result.user.uid);
 			  const loggedUser = await getSingleUser(result.user.uid);
 			  props.setUser(loggedUser)
+			  createAbout(result.user.uid, about, ring, destination)
 			  history.push(`/login`);
 			})
 			.catch((error) => {
@@ -95,6 +99,29 @@ const Signup: React.FunctionComponent<SignupProps> = (props) => {
 					onChange={(event) => setConfirm(event.target.value)}
 				/>
 				<br />
+				 <label htmlFor='aboutme'>About Me: </label>
+  <input 
+  type='text'
+  name='aboutme'
+  id='aboutme'
+  value={about}
+  onChange={(event)=> setAbout(event.target.value)}/>
+
+  <label htmlFor='ring'>My Ring, aka what I'm bringing with me on this journey: </label>
+  <input 
+  type='text'
+  name='ring'
+  id='ring'
+  value={ring}
+  onChange={(event)=> setRing(event.target.value)}/>
+
+   <label htmlFor='destination'>My Destination: </label>
+  <input 
+  type='text'
+  name='destination'
+  id='destination'
+  value={destination}
+  onChange={(event)=> setDestination(event.target.value)}/>
 				<button>Sign Up!</button>
 				<p>
 					If you've already spoken friend, enter here:{' '}

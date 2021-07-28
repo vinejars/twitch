@@ -1,6 +1,6 @@
 
 export interface ProfileInfoAttributes {
-  id: number;
+  id:  string;
 
   aboutMe: string | null;
 

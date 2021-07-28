@@ -19,6 +19,17 @@ export const getSingleUser = async function(id: string){
     }  
 }
 
+//function to retrieve a user's profile info
+export const getInfo = async function(id: string){
+    
+    try {
+        const {data} = await axios.get(`/api/user/post/${id}`)
+        return data
+    } catch (error) {
+        console.log(error)
+    }  
+}
+
 //function to create a user in the database
 export async function createUser(username: string, email: string, firebase: string){
   try {
@@ -30,15 +41,14 @@ export async function createUser(username: string, email: string, firebase: stri
 
 
 //function to create About Section in profile
-export async function createAbout(id: string,about: string, ring: string, destination: string){
-    console.log('am i getting here?')
+export async function createAbout(id: string, about: string, ring: string, destination: string){
   try {
      const info = await axios.post('/api/createabout', { id,about, ring, destination})
-     console.log('info: ', info)
      return info
   } catch (error) {
       console.log(error)
       return null
   }
 }
+
 

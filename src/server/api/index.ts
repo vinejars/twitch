@@ -16,12 +16,35 @@ router.get('/user/:userId', async(req: Request, res: Response, next: NextFunctio
     }
 })
 
-
+//route to get all posts belonging to a specific user
 router.get('/allposts/:userId', async(req: Request, res: Response, next: NextFunction)=>{
     try {
         const posts = await Post.findAll({
         where: {userId: req.params.userId}
         })
+        res.json(posts)
+    } catch (error) {
+       next(error) 
+    }
+})
+
+//route to get certain user's profile info
+router.get(`/user/post/:userId`, async(req: Request, res: Response, next: NextFunction)=>{
+    try {
+        console.log('id: ', req.params.userId)
+        const info = await ProfileInfo.findByPk(req.params.userId)
+        console.log('info: ', info)
+        res.json(info)
+    } catch (error) {
+       next(error) 
+    }
+})
+
+//route to get all posts in database for gallery 
+
+router.get('/gallery', async(req: Request, res: Response, next: NextFunction)=>{
+    try {
+        const posts = await Post.findAll()
         res.json(posts)
     } catch (error) {
        next(error) 
@@ -48,32 +71,38 @@ router.post('/create', async(req: Request, res: Response, next: NextFunction)=>{
 
 //route to create a profile info section
 router.post('/createabout', async(req: Request, res: Response, next: NextFunction)=>{
+    console.log('am i happening')
   try {
       const user = await User.findByPk(req.body.id)
       if(!user){
           res.sendStatus(404)
       } else {
          const info = await ProfileInfo.create({
+              id: req.body.id,
               aboutMe: req.body.about,
               ring: req.body.ring,
               destination: req.body.destination,
               userId: req.body.id
           })
+          console.log('info: ', info)
          // user.hasOne(info)
         res.send(info)
       }
       
   } catch (error) {
-      
+      next(error)
   }
 })
 
+
+//create a post 
 router.post('/post', async(req: Request, res: Response, next: NextFunction)=>{
     try {
 
         const lastPost = await Post.findAll({
         raw: true, limit: 1, order: [ ['createdAt', 'DESC'] ]
         })
+
         
 
         const post = await Post.create({
