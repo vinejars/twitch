@@ -3,7 +3,7 @@ import express, { Application, Request, Response, NextFunction } from "express";
 import path from "path";
 import { db } from "./server/db/index";
 import HttpException from "./errorhandling";
-const PORT = 8409;
+const PORT = process.env.PORT ||8409;
 
 const app: Application = express();
 export default app;
