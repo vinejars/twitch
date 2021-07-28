@@ -42,6 +42,7 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
 		}
 		let id: string = window.localStorage.id;
 		let url: string | null = await fileRef.getDownloadURL();
+		console.log('id: ', id, 'url: ', url);
 		setPhotoUrl(url);
 		setUserId(id);
 	};
