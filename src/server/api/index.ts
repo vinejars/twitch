@@ -120,12 +120,9 @@ router.post(
 
 			// console.log(lastPost);
 
-			const post = await Post.create({
-				imageUrl: req.body.imageUrl,
-				text: req.body.text,
-				userId: req.body.userId,
-				id: 890,
-			});
+			const post = await Post.create(
+	   req.body
+			);
 
 			console.log('this is req.body: ', req.body);
 			res.json(post);
