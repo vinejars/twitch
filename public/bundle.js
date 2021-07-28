@@ -74611,23 +74611,23 @@ const CreatePost = (props) => {
     const onChange = (e) => __awaiter(void 0, void 0, void 0, function* () {
         if (!e.target.files) {
             //handle error
-            throw new Error('no file chosen!');
+            throw new Error("no file chosen!");
             return;
         }
         const file = e.target.files[0];
-        if (firebase_1.default.storage().ref()) {
-            const storageRef = firebase_1.default.storage().ref();
-            const fileRef = storageRef.child(file.name);
-            yield fileRef.put(file).then(() => { });
-            if (firebase_1.default.auth().currentUser) {
-                let id = firebase_1.default.auth().currentUser.uid;
-                let url = yield fileRef.getDownloadURL();
-                setPhotoUrl(url);
-                setUserId(id);
-            }
+        const storageRef = firebase_1.default.storage().ref();
+        const fileRef = storageRef.child(file.name);
+        yield fileRef.put(file).then(() => {
+            console.log("SUCCESS!!!");
+        });
+        if (firebase_1.default.auth().currentUser) {
+            let id = firebase_1.default.auth().currentUser.uid;
+            let url = yield fileRef.getDownloadURL();
+            setPhotoUrl(url);
+            setUserId(id);
         }
         else {
-            return;
+            throw new Error("how did you get here?! please log in to upload a post :)");
         }
     });
     return (react_1.default.createElement("div", null,
@@ -75469,12 +75469,12 @@ exports.editAbout = editAbout;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const config = {
     firebase: {
-        apiKey: "AIzaSyCoCH5PHOUe3zmLDAIzRjLsp6umUNzsimU",
-        authDomain: "twitchspeakfriend.firebaseapp.com",
-        projectId: "twitchspeakfriend",
-        storageBucket: "twitchspeakfriend.appspot.com",
-        messagingSenderId: "626100278677",
-        appId: "1:626100278677:web:75a98f5643e60a1459d29c",
+        apiKey: process.env.API_KEY,
+        authDomain: process.env.AUTH_DOMAIN,
+        projectId: process.env.PROJECT_ID,
+        storageBucket: process.env.STORAGE_BUCKET,
+        messagingSenderId: process.env.SENDER_ID,
+        appId: process.env.APP_ID,
     },
 };
 exports.default = config;

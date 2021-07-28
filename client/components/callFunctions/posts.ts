@@ -8,12 +8,12 @@ export type PostType = {
 };
 
 export type AboutType = {
-  id: string,
-  aboutMe: string,
-  ring: string,
-  destination: string,
-  userId: string
-}
+  id: string;
+  aboutMe: string;
+  ring: string;
+  destination: string;
+  userId: string;
+};
 
 //function to create a post
 export async function createPost(

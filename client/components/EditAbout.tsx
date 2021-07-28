@@ -16,13 +16,13 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
   const [info, setInfo] = useState<any>(null);
   const history = useHistory();
 
-  async function grabInfo(){
-    if(props.user.id){
-    const oldInfo: string | null = await getInfo(props.user.id);
-    await setInfo(oldInfo);
-   } else {
-     return 
-   }
+  async function grabInfo() {
+    if (props.user.id) {
+      const oldInfo: string | null = await getInfo(props.user.id);
+      await setInfo(oldInfo);
+    } else {
+      return;
+    }
   }
 
   useEffect(() => {
@@ -32,18 +32,18 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
   });
 
   async function handleSubmit() {
-    if(props.user.id){
-    let obj: AboutType = {
-      id: props.user.id,
-      aboutMe: about,
-      ring: ring,
-      destination: destination,
-      userId: props.user.id,
-    };
-    editAbout(obj);
-    history.push(`/gallery`);
+    if (props.user.id) {
+      let obj: AboutType = {
+        id: props.user.id,
+        aboutMe: about,
+        ring: ring,
+        destination: destination,
+        userId: props.user.id,
+      };
+      editAbout(obj);
+      history.push(`/gallery`);
     } else {
-      return
+      return;
     }
   }
 

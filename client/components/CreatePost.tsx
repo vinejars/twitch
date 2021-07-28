@@ -23,24 +23,26 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
   };
 
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(!e.target.files){
+    if (!e.target.files) {
       //handle error
-      throw new Error('no file chosen!')
+      throw new Error("no file chosen!");
       return;
     }
     const file: File = e.target.files[0];
-    if(firebase.storage().ref()){
     const storageRef = firebase.storage().ref();
     const fileRef = storageRef.child(file.name);
-    await fileRef.put(file).then(() => {});
-    if(firebase.auth().currentUser){
-    let id: string | null = firebase.auth().currentUser.uid;
-    let url: string | null = await fileRef.getDownloadURL();
-    setPhotoUrl(url);
-    setUserId(id);
-    }
+    await fileRef.put(file).then(() => {
+      console.log("SUCCESS!!!");
+    });
+    if (firebase.auth().currentUser) {
+      let id: string | null = firebase.auth().currentUser.uid;
+      let url: string | null = await fileRef.getDownloadURL();
+      setPhotoUrl(url);
+      setUserId(id);
     } else {
-      return;
+      throw new Error(
+        "how did you get here?! please log in to upload a post :)"
+      );
     }
   };
 

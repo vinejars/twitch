@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import firebase from "../config/firebase";
 import { UserType } from "./callFunctions/singleUser";
+import { Tabs, Tab, AppBar } from "@material-ui/core";
 
 interface NavProps {
   user: UserType;

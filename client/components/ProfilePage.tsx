@@ -43,10 +43,10 @@ const ProfilePage: React.FunctionComponent<ProfileProps> = (props) => {
   });
 
   function handleDelete() {
-    if(props.user.id){
-    deletePost(props.user.id);
-    grabPosts(props.user.id);
-    history.go(0);
+    if (props.user.id) {
+      deletePost(props.user.id);
+      grabPosts(props.user.id);
+      history.go(0);
     } else {
       return;
     }
