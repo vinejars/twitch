@@ -42,7 +42,7 @@
     "webpack-cli": "^4.7.2"
   },
   "scripts": {
-    "start:comp": "node dist/app.js",
+    "start": "node dist/app.js",
     "build": "npm run build:server & npm run build:client",
     "start:dev": "nodemon src/app.ts & npm run build:watch",
     "build:server": "tsc -p .",

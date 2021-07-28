@@ -1,1 +1,1 @@
-web: npm start:comp
+web: npm start
