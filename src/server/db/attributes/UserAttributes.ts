@@ -1,6 +1,6 @@
-import Sequelize from 'sequelize'
-import Post from '../Post'
-import ProfileInfo from '../ProfileInfo'
+import Sequelize from "sequelize";
+import Post from "../Post";
+import ProfileInfo from "../ProfileInfo";
 
 export interface UserAttributes {
   id: string;
@@ -13,7 +13,7 @@ export interface UserAttributes {
 
   // hasOne: Sequelize.HasManyAddAssociationMixin<Post>
 
-  readonly 'createdAt'?: Date;
+  readonly createdAt?: Date;
 
-  readonly 'updatedDate'?: Date;
+  readonly updatedDate?: Date;
 }

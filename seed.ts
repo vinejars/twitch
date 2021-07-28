@@ -1,36 +1,36 @@
-import { User, db, Post } from './src/server/db/index'
+import { User, db, Post } from "./src/server/db/index";
 
+const seed = async () => {
+  await db.sync({ force: true });
 
-const seed = async() =>{
-    await db.sync({ force: true})
+  //Users
 
-    //Users
-
-const anna = await User.create({
-    id: 'jfdaohof',
+  const anna = await User.create({
+    id: "jfdaohof",
     firebaseID: null,
-    email: 'annabanana@email.com',
-    username: 'samwiseuporelse',
-})
+    email: "annabanana@email.com",
+    username: "samwiseuporelse",
+  });
 
-const quinn = await User.create({
-    id: 'dfnaodshfla',
+  const quinn = await User.create({
+    id: "dfnaodshfla",
     firebaseID: null,
-    email: 'radagastrapunzel@email.com',
-    username: 'celebornthisway',
-})
+    email: "radagastrapunzel@email.com",
+    username: "celebornthisway",
+  });
 
-const em = await User.create({
-    id: 'dioafhdao',
+  const em = await User.create({
+    id: "dioafhdao",
     firebaseID: null,
-    email: 'skazzmatter@email.com',
-    username: 'f00lofat00k',
-})
+    email: "skazzmatter@email.com",
+    username: "f00lofat00k",
+  });
 
-db.close();
-  console.log(`Even the smallest person can change the course of history... or seed a database`);
-
-}
+  db.close();
+  console.log(
+    `Even the smallest person can change the course of history... or seed a database`
+  );
+};
 
 seed().catch((err) => {
   db.close();
@@ -40,4 +40,3 @@ seed().catch((err) => {
     ${err.stack}
   `);
 });
-

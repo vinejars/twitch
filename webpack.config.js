@@ -1,25 +1,23 @@
- 
-
 module.exports = {
-  entry: ['babel-polyfill', './src/client/index.tsx'],
+  entry: ["babel-polyfill", "./src/client/index.tsx"],
   output: {
     path: __dirname,
-    filename: './public/bundle.js',
+    filename: "./public/bundle.js",
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
-  mode: 'development',
-  devtool: 'source-map',
+  mode: "development",
+  devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        loader: 'ts-loader',
+        loader: "ts-loader",
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

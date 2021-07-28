@@ -1,4 +1,3 @@
-
 export interface PostAttributes {
   id: number;
 
@@ -8,7 +7,7 @@ export interface PostAttributes {
 
   userId: string | null;
 
-  readonly 'createdAt'?: Date;
+  readonly createdAt?: Date;
 
-  readonly 'updatedDate'?: Date;
+  readonly updatedDate?: Date;
 }

@@ -1,12 +1,14 @@
 # SpeakFriend
+
 <p> An LOTR social media app made for <img alt="Twitch" src="https://img.shields.io/badge/TWITCH-%239146FF.svg?style=for-the-badge&logo=Twitch&logoColor=white"/> </p>
 <h2> APIs: </h2>
 
 - [The One API](https://the-one-api.dev/)
-> a Lord of the Rings themed API </br>
+
+  > a Lord of the Rings themed API </br>
 
 - [Firebase](https://firebase.google.com/docs/reference/rest/auth)
-> Google's Authorization RESTful API
+  > Google's Authorization RESTful API
 
 </br>
 <h2>Tech Stack</h2>

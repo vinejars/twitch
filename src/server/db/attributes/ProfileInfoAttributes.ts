@@ -1,16 +1,15 @@
-
 export interface ProfileInfoAttributes {
-  id:  string;
+  id: string;
 
   aboutMe: string | null;
 
   ring: string | null;
 
- destination: string | null;
+  destination: string | null;
 
-  userId: string | null
-  
-  readonly 'createdAt'?: Date;
+  userId: string | null;
 
-  readonly 'updatedDate'?: Date;
+  readonly createdAt?: Date;
+
+  readonly updatedDate?: Date;
 }

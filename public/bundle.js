@@ -39852,7 +39852,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "Navbar styling */\n\n#navcontain{\n    display:flex;\n    flex-direction: row;\n    align-content: space-around;\n    justify-items: center;\n}\n\n*{\n    background-color: #c3c9c5;\n} ", "",{"version":3,"sources":["webpack://./src/client/styles.css"],"names":[],"mappings":"AAAA;;;IAGI,YAAY;IACZ,mBAAmB;IACnB,2BAA2B;IAC3B,qBAAqB;AACzB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":["Navbar styling */\n\n#navcontain{\n    display:flex;\n    flex-direction: row;\n    align-content: space-around;\n    justify-items: center;\n}\n\n*{\n    background-color: #c3c9c5;\n} "],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "Navbar styling */ #navcontain {\n  display: flex;\n  flex-direction: row;\n  align-content: space-around;\n  justify-items: center;\n}\n\n* {\n  background-color: #c3c9c5;\n}\n", "",{"version":3,"sources":["webpack://./src/client/styles.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,mBAAmB;EACnB,2BAA2B;EAC3B,qBAAqB;AACvB;;AAEA;EACE,yBAAyB;AAC3B","sourcesContent":["Navbar styling */ #navcontain {\n  display: flex;\n  flex-direction: row;\n  align-content: space-around;\n  justify-items: center;\n}\n\n* {\n  background-color: #c3c9c5;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -75018,7 +75018,7 @@ const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/cl
 const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
 const AllPosts = (props) => {
     const [images, setImages] = react_1.useState(null);
-    console.log('images: ', images);
+    console.log("images: ", images);
     function grabPosts() {
         return __awaiter(this, void 0, void 0, function* () {
             const allImages = yield posts_1.getAllImages();
@@ -75032,7 +75032,7 @@ const AllPosts = (props) => {
     });
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
-        !images ? (null) : (react_1.default.createElement("div", { id: 'galleryoutside' }, images.map((image) => (react_1.default.createElement("div", { className: 'image-outside', key: image.id },
+        !images ? null : (react_1.default.createElement("div", { id: "galleryoutside" }, images.map((image) => (react_1.default.createElement("div", { className: "image-outside", key: image.id },
             react_1.default.createElement("img", { src: image.imageUrl, width: 300 }),
             react_1.default.createElement("p", null, image.text))))))));
 };
@@ -75087,14 +75087,13 @@ const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/c
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const CreatePost = (props) => {
-    const [text, setText] = react_1.useState('');
-    const [photoUrl, setPhotoUrl] = react_1.useState('');
-    const [userId, setUserId] = react_1.useState('');
+    const [text, setText] = react_1.useState("");
+    const [photoUrl, setPhotoUrl] = react_1.useState("");
+    const [userId, setUserId] = react_1.useState("");
     const history = react_router_dom_1.useHistory();
-    // console.log('createpost user: ', props.user)
     const handleClick = (e) => __awaiter(void 0, void 0, void 0, function* () {
         e.preventDefault();
-        console.log('userId: ', userId);
+        console.log("userId: ", userId);
         posts_1.createPost(userId, photoUrl, text);
         history.push(`/gallery`);
     });
@@ -75106,7 +75105,7 @@ const CreatePost = (props) => {
             console.log("SUCCESSSSSSS!!");
         });
         let id = firebase_1.default.auth().currentUser.uid;
-        console.log('id: ', id);
+        console.log("id: ", id);
         let url = yield fileRef.getDownloadURL();
         setPhotoUrl(url);
         setUserId(id);
@@ -75114,10 +75113,102 @@ const CreatePost = (props) => {
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
         react_1.default.createElement("input", { type: "file", onChange: onChange }),
-        react_1.default.createElement("textarea", { name: 'postinfo', maxLength: '250', onChange: (event) => setText(event.target.value) }),
+        react_1.default.createElement("textarea", { name: "postinfo", maxLength: "250", onChange: (event) => setText(event.target.value) }),
         react_1.default.createElement("button", { onClick: (e) => handleClick(e) }, " Upload ")));
 };
 exports.default = CreatePost;
+
+
+/***/ }),
+
+/***/ "./src/client/components/EditAbout.tsx":
+/*!*********************************************!*\
+  !*** ./src/client/components/EditAbout.tsx ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
+const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+const EditAbout = props => {
+    const [about, setAbout] = react_1.useState("");
+    const [ring, setRing] = react_1.useState("");
+    const [destination, setDestination] = react_1.useState("");
+    const [info, setInfo] = react_1.useState(null);
+    const history = react_router_dom_1.useHistory();
+    function grabInfo() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const oldInfo = yield singleUser_1.getInfo(props.user.id);
+            setInfo(oldInfo);
+        });
+    }
+    react_1.useEffect(() => {
+        if (!info && props.user) {
+            grabInfo();
+        }
+    });
+    function handleSubmit() {
+        console.log('is handleSubmit running?');
+        let obj = {
+            id: props.user.id,
+            aboutMe: about,
+            ring: ring,
+            destination: destination,
+            userId: props.user.id
+        };
+        singleUser_1.editAbout(obj);
+        history.push(`/gallery`);
+    }
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
+        info ? (react_1.default.createElement("div", null,
+            react_1.default.createElement("form", { onSubmit: handleSubmit },
+                react_1.default.createElement("label", { htmlFor: "aboutme" }, "About Me: "),
+                react_1.default.createElement("input", { type: "text", name: "aboutme", id: "aboutme", defaultValue: info.aboutMe, onChange: (event) => setAbout(event.target.value) }),
+                react_1.default.createElement("label", { htmlFor: "ring" },
+                    "My Ring, aka what I'm bringing with me on this journey:",
+                    " "),
+                react_1.default.createElement("input", { type: "text", name: "ring", defaultValue: info.ring, onChange: (event) => setRing(event.target.value) }),
+                react_1.default.createElement("label", { htmlFor: "destination" }, "My Destination: "),
+                react_1.default.createElement("input", { type: "text", name: "destination", id: "destination", defaultValue: info.destination, onChange: (event) => setDestination(event.target.value) }),
+                react_1.default.createElement("button", { type: 'submit' }, " Submit ")))) : (null)));
+};
+exports.default = EditAbout;
 
 
 /***/ }),
@@ -75136,7 +75227,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const Fail = (props) => {
-    if (props.error === '')
+    if (props.error === "")
         return null;
     return react_1.default.createElement("p", null, props.error);
 };
@@ -75192,41 +75283,41 @@ const Fail_1 = __importDefault(__webpack_require__(/*! ./Fail */ "./src/client/c
 const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
 const Login = (props) => {
     const [loggingIn, setLoggingIn] = react_1.useState(false);
-    const [email, setEmail] = react_1.useState('');
-    const [password, setPassword] = react_1.useState('');
-    const [error, setError] = react_1.useState('');
+    const [email, setEmail] = react_1.useState("");
+    const [password, setPassword] = react_1.useState("");
+    const [error, setError] = react_1.useState("");
     const history = react_router_dom_1.useHistory();
     const signInWithEmailAndPassword = (e) => __awaiter(void 0, void 0, void 0, function* () {
         e.preventDefault();
-        if (error !== '')
-            setError('');
+        if (error !== "")
+            setError("");
         setLoggingIn(true);
         yield firebase_1.auth
             .signInWithEmailAndPassword(email, password)
             .then((result) => __awaiter(void 0, void 0, void 0, function* () {
             const loggedUser = yield singleUser_1.getSingleUser(result.user.uid);
             props.setUser(loggedUser);
-            window.localStorage.setItem('id', `${result.user.uid}`);
+            window.localStorage.setItem("id", `${result.user.uid}`);
             history.push(`/user/${result.user.uid}`);
         }))
             .catch((error) => {
             console.log(error);
             setLoggingIn(false);
-            setError('Not able to sign in! Please try again!');
+            setError("Not able to sign in! Please try again!");
         });
     });
     return (react_1.default.createElement("div", null,
         react_1.default.createElement("h1", null, "Log In!"),
         react_1.default.createElement("form", { onSubmit: (e) => signInWithEmailAndPassword(e) },
-            react_1.default.createElement("label", { htmlFor: 'email' }, "Enter Your Email"),
-            react_1.default.createElement("input", { type: 'email', name: 'email', id: 'email', value: email, onChange: (event) => setEmail(event.target.value) }),
-            react_1.default.createElement("label", { htmlFor: 'password' }, "Enter Your Password"),
-            react_1.default.createElement("input", { autoComplete: 'new-password', type: 'password', name: 'password', id: 'password', value: password, onChange: (event) => setPassword(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "email" }, "Enter Your Email"),
+            react_1.default.createElement("input", { type: "email", name: "email", id: "email", value: email, onChange: (event) => setEmail(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "password" }, "Enter Your Password"),
+            react_1.default.createElement("input", { autoComplete: "new-password", type: "password", name: "password", id: "password", value: password, onChange: (event) => setPassword(event.target.value) }),
             react_1.default.createElement("button", null, "Log In!"),
             react_1.default.createElement("p", null,
                 "If you'd like to join the party go to:",
-                ' ',
-                react_1.default.createElement(react_router_dom_1.Link, { to: '/signup' }, "Sign Up"))),
+                " ",
+                react_1.default.createElement(react_router_dom_1.Link, { to: "/signup" }, "Sign Up"))),
         react_1.default.createElement(Fail_1.default, { error: error })));
 };
 exports.default = Login;
@@ -75250,9 +75341,9 @@ const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const LoginNav = (props) => {
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement("nav", { id: 'navcontain' },
-            react_1.default.createElement(react_router_dom_1.Link, { to: '/login' }, " Login "),
-            react_1.default.createElement(react_router_dom_1.Link, { to: '/signup' }, " Signup "))));
+        react_1.default.createElement("nav", { id: "navcontain" },
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/login" }, " Login "),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/signup" }, " Signup "))));
 };
 exports.default = LoginNav;
 
@@ -75329,13 +75420,18 @@ const MainNav = (props) => {
             .catch((error) => {
             console.log(error);
         });
-        props.setUser({ id: undefined, email: undefined, username: undefined, firebaseID: undefined });
-        history.push('/login');
+        props.setUser({
+            id: undefined,
+            email: undefined,
+            username: undefined,
+            firebaseID: undefined,
+        });
+        history.push("/login");
     };
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement("nav", { id: 'navcontain' },
-            react_1.default.createElement(react_router_dom_1.Link, { to: '/gallery' }, " The Fellowship Feed "),
-            react_1.default.createElement(react_router_dom_1.Link, { to: '/add' }, " Add Post "),
+        react_1.default.createElement("nav", { id: "navcontain" },
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/gallery" }, " The Fellowship Feed "),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/add" }, " Add Post "),
             react_1.default.createElement(react_router_dom_1.Link, { to: `/user/${props.user.id}` }, " My Journey "),
             react_1.default.createElement("button", { onClick: logout }, " Logout "))));
 };
@@ -75385,6 +75481,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
 const posts_1 = __webpack_require__(/*! ./callFunctions/posts */ "./src/client/components/callFunctions/posts.ts");
 const MainNav_1 = __importDefault(__webpack_require__(/*! ./MainNav */ "./src/client/components/MainNav.tsx"));
@@ -75425,7 +75522,7 @@ const ProfilePage = (props) => {
     });
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(MainNav_1.default, { user: props.user, setUser: props.setUser }),
-        !info ? (null) : (react_1.default.createElement("div", { id: 'aboutme', key: info.id },
+        !info ? null : (react_1.default.createElement("div", { id: "aboutme", key: info.id },
             react_1.default.createElement("h3", null, "About Me: "),
             react_1.default.createElement("p", null,
                 " ",
@@ -75443,8 +75540,9 @@ const ProfilePage = (props) => {
             react_1.default.createElement("p", null,
                 " ",
                 info.destination,
-                " "))),
-        !posts ? (null) : (react_1.default.createElement("div", null, posts.map((post) => (react_1.default.createElement("div", { key: post.id },
+                " "),
+            react_1.default.createElement(react_router_dom_1.Link, { to: '/edit' }, " Edit My Info "))),
+        !posts ? null : (react_1.default.createElement("div", null, posts.map((post) => (react_1.default.createElement("div", { key: post.id },
             react_1.default.createElement("img", { src: post.imageUrl, width: 300 }),
             react_1.default.createElement("p", null, post.text))))))));
 };
@@ -75492,22 +75590,25 @@ const Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./src/client
 const ProfilePage_1 = __importDefault(__webpack_require__(/*! ./ProfilePage */ "./src/client/components/ProfilePage.tsx"));
 const CreatePost_1 = __importDefault(__webpack_require__(/*! ./CreatePost */ "./src/client/components/CreatePost.tsx"));
 const AllPosts_1 = __importDefault(__webpack_require__(/*! ./AllPosts */ "./src/client/components/AllPosts.tsx"));
+const EditAbout_1 = __importDefault(__webpack_require__(/*! ./EditAbout */ "./src/client/components/EditAbout.tsx"));
 __webpack_require__(/*! ../styles.css */ "./src/client/styles.css");
-const Routes = props => {
+const Routes = (props) => {
     const [user, setUser] = react_1.useState({});
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(react_router_dom_1.Switch, null,
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/' },
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: "/" },
                 react_1.default.createElement(Main_1.default, null)),
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/login' },
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: "/login" },
                 react_1.default.createElement(Login_1.default, { user: user, setUser: setUser })),
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/signup' },
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: "/signup" },
                 react_1.default.createElement(Signup_1.default, { user: user, setUser: setUser })),
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/user/:id' },
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: "/user/:id" },
                 react_1.default.createElement(ProfilePage_1.default, { user: user, setUser: setUser })),
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/add' },
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: "/edit" },
+                react_1.default.createElement(EditAbout_1.default, { user: user, setUser: setUser })),
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: "/add" },
                 react_1.default.createElement(CreatePost_1.default, { user: user, setUser: setUser })),
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: '/gallery' },
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: "/gallery" },
                 react_1.default.createElement(AllPosts_1.default, { user: user, setUser: setUser })))));
 };
 exports.default = Routes;
@@ -75562,21 +75663,21 @@ const Fail_1 = __importDefault(__webpack_require__(/*! ./Fail */ "./src/client/c
 const singleUser_1 = __webpack_require__(/*! ./callFunctions/singleUser */ "./src/client/components/callFunctions/singleUser.ts");
 const Signup = (props) => {
     const [signup, setSignup] = react_1.useState(false);
-    const [email, setEmail] = react_1.useState('');
-    const [username, setUsername] = react_1.useState('');
-    const [password, setPassword] = react_1.useState('');
-    const [confirm, setConfirm] = react_1.useState('');
-    const [error, setError] = react_1.useState('');
-    const [about, setAbout] = react_1.useState('');
-    const [ring, setRing] = react_1.useState('');
-    const [destination, setDestination] = react_1.useState('');
+    const [email, setEmail] = react_1.useState("");
+    const [username, setUsername] = react_1.useState("");
+    const [password, setPassword] = react_1.useState("");
+    const [confirm, setConfirm] = react_1.useState("");
+    const [error, setError] = react_1.useState("");
+    const [about, setAbout] = react_1.useState("");
+    const [ring, setRing] = react_1.useState("");
+    const [destination, setDestination] = react_1.useState("");
     const history = react_router_dom_1.useHistory();
     const signUpWithEmailAndPassword = (e) => __awaiter(void 0, void 0, void 0, function* () {
         e.preventDefault();
-        if (error !== '')
-            setError('');
+        if (error !== "")
+            setError("");
         if (password !== confirm)
-            setError('Passwords do not match!');
+            setError("Passwords do not match!");
         setSignup(true);
         yield firebase_1.auth
             .createUserWithEmailAndPassword(email, password)
@@ -75589,14 +75690,14 @@ const Signup = (props) => {
         }))
             .catch((error) => {
             console.log(error);
-            if (error.code.includes('auth/weak-password')) {
+            if (error.code.includes("auth/weak-password")) {
                 setError(`It is not the strength of the body, but the strength of the spirit. ...and also your password. Please make it stronger.`);
             }
-            else if (error.code.includes('auth/email-already-in-use')) {
-                setError('Email is already in use! You shall not pass!');
+            else if (error.code.includes("auth/email-already-in-use")) {
+                setError("Email is already in use! You shall not pass!");
             }
             else {
-                setError('Unable to register. Please take off the ring and try again.');
+                setError("Unable to register. Please take off the ring and try again.");
             }
             setSignup(false);
         });
@@ -75604,29 +75705,31 @@ const Signup = (props) => {
     return (react_1.default.createElement("div", null,
         react_1.default.createElement("h1", null, "Sign Up!"),
         react_1.default.createElement("form", { onSubmit: (e) => signUpWithEmailAndPassword(e) },
-            react_1.default.createElement("label", { htmlFor: 'email' }, "Sign up with your email:"),
-            react_1.default.createElement("input", { type: 'email', name: 'email', id: 'email', value: email, onChange: (event) => setEmail(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "email" }, "Sign up with your email:"),
+            react_1.default.createElement("input", { type: "email", name: "email", id: "email", value: email, onChange: (event) => setEmail(event.target.value) }),
             react_1.default.createElement("br", null),
-            react_1.default.createElement("label", { htmlFor: 'username' }, "Create a username:"),
-            react_1.default.createElement("input", { type: 'username', name: 'username', id: 'username', value: username, onChange: (event) => setUsername(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "username" }, "Create a username:"),
+            react_1.default.createElement("input", { type: "username", name: "username", id: "username", value: username, onChange: (event) => setUsername(event.target.value) }),
             react_1.default.createElement("br", null),
-            react_1.default.createElement("label", { htmlFor: 'password' }, "Choose your password:"),
-            react_1.default.createElement("input", { autoComplete: 'new-password', type: 'password', name: 'password', id: 'password', value: password, onChange: (event) => setPassword(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "password" }, "Choose your password:"),
+            react_1.default.createElement("input", { autoComplete: "new-password", type: "password", name: "password", id: "password", value: password, onChange: (event) => setPassword(event.target.value) }),
             react_1.default.createElement("br", null),
-            react_1.default.createElement("label", { htmlFor: 'confirm' }, "Make sure it's strong! (Confirm:)"),
-            react_1.default.createElement("input", { autoComplete: 'new-password', type: 'password', name: 'confirm', id: 'confirm', value: confirm, onChange: (event) => setConfirm(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "confirm" }, "Make sure it's strong! (Confirm:)"),
+            react_1.default.createElement("input", { autoComplete: "new-password", type: "password", name: "confirm", id: "confirm", value: confirm, onChange: (event) => setConfirm(event.target.value) }),
             react_1.default.createElement("br", null),
-            react_1.default.createElement("label", { htmlFor: 'aboutme' }, "About Me: "),
-            react_1.default.createElement("input", { type: 'text', name: 'aboutme', id: 'aboutme', value: about, onChange: (event) => setAbout(event.target.value) }),
-            react_1.default.createElement("label", { htmlFor: 'ring' }, "My Ring, aka what I'm bringing with me on this journey: "),
-            react_1.default.createElement("input", { type: 'text', name: 'ring', id: 'ring', value: ring, onChange: (event) => setRing(event.target.value) }),
-            react_1.default.createElement("label", { htmlFor: 'destination' }, "My Destination: "),
-            react_1.default.createElement("input", { type: 'text', name: 'destination', id: 'destination', value: destination, onChange: (event) => setDestination(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "aboutme" }, "About Me: "),
+            react_1.default.createElement("input", { type: "text", name: "aboutme", id: "aboutme", value: about, onChange: (event) => setAbout(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "ring" },
+                "My Ring, aka what I'm bringing with me on this journey:",
+                " "),
+            react_1.default.createElement("input", { type: "text", name: "ring", id: "ring", value: ring, onChange: (event) => setRing(event.target.value) }),
+            react_1.default.createElement("label", { htmlFor: "destination" }, "My Destination: "),
+            react_1.default.createElement("input", { type: "text", name: "destination", id: "destination", value: destination, onChange: (event) => setDestination(event.target.value) }),
             react_1.default.createElement("button", null, "Sign Up!"),
             react_1.default.createElement("p", null,
                 "If you've already spoken friend, enter here:",
-                ' ',
-                react_1.default.createElement(react_router_dom_1.Link, { to: '/login' }, "Login"))),
+                " ",
+                react_1.default.createElement(react_router_dom_1.Link, { to: "/login" }, "Login"))),
         react_1.default.createElement(Fail_1.default, { error: error })));
 };
 exports.default = Signup;
@@ -75661,7 +75764,7 @@ const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules
 function createPost(userId, imageUrl, text) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield axios_1.default.post('/api/post', { userId, imageUrl, text });
+            yield axios_1.default.post("/api/post", { userId, imageUrl, text });
         }
         catch (error) {
             console.log(error);
@@ -75674,8 +75777,9 @@ const getPosts = function (userId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let posts = [{}];
-            yield axios_1.default.get(`/api/allposts/${userId}`)
-                .then((response) => { posts = response.data; });
+            yield axios_1.default.get(`/api/allposts/${userId}`).then((response) => {
+                posts = response.data;
+            });
             return posts;
         }
         catch (error) {
@@ -75690,10 +75794,11 @@ const getAllImages = function () {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let images = [{}];
-            yield axios_1.default.get("/api/gallery/")
-                .then((response) => { images = response.data; });
+            yield axios_1.default.get("/api/gallery/").then((response) => {
+                images = response.data;
+            });
             return images;
-            console.log('function Images: ', images);
+            console.log("function Images: ", images);
         }
         catch (error) {
             console.log(error);
@@ -75727,7 +75832,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createAbout = exports.createUser = exports.getInfo = exports.getSingleUser = void 0;
+exports.editAbout = exports.createAbout = exports.createUser = exports.getInfo = exports.getSingleUser = void 0;
 const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 //function to retrieve a single user from database
 const getSingleUser = function (id) {
@@ -75759,7 +75864,7 @@ exports.getInfo = getInfo;
 function createUser(username, email, firebase) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield axios_1.default.post('/api/create', { username, email, firebase });
+            yield axios_1.default.post("/api/create", { username, email, firebase });
         }
         catch (error) {
             console.log(error);
@@ -75771,7 +75876,12 @@ exports.createUser = createUser;
 function createAbout(id, about, ring, destination) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const info = yield axios_1.default.post('/api/createabout', { id, about, ring, destination });
+            const info = yield axios_1.default.post("/api/createabout", {
+                id,
+                about,
+                ring,
+                destination,
+            });
             return info;
         }
         catch (error) {
@@ -75781,6 +75891,19 @@ function createAbout(id, about, ring, destination) {
     });
 }
 exports.createAbout = createAbout;
+//function to edit AboutMe section 
+function editAbout(info) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const { data } = yield axios_1.default.put(`/api/editAbout`, info);
+            return data;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+exports.editAbout = editAbout;
 
 
 /***/ }),
@@ -75821,7 +75944,7 @@ const react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node
 const Routes_1 = __importDefault(__webpack_require__(/*! ./components/Routes */ "./src/client/components/Routes.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 react_dom_1.default.render(React.createElement(react_router_dom_1.BrowserRouter, null,
-    React.createElement(Routes_1.default, null)), document.getElementById('app'));
+    React.createElement(Routes_1.default, null)), document.getElementById("app"));
 
 
 /***/ }),
@@ -75842,7 +75965,7 @@ const config = {
         projectId: "twitchspeakfriend",
         storageBucket: "twitchspeakfriend.appspot.com",
         messagingSenderId: "626100278677",
-        appId: "1:626100278677:web:75a98f5643e60a1459d29c"
+        appId: "1:626100278677:web:75a98f5643e60a1459d29c",
     },
 };
 exports.default = config;
