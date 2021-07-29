@@ -55,7 +55,7 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
         <div >
           <form onSubmit={handleSubmit}>
             <div id="edit-flex">
-              <div>
+              <div className='editinfo'>
                 <label htmlFor="aboutme">About Me: </label>
                 <br />
                 <TextField                
@@ -71,7 +71,7 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
                 />
               </div>
 
-              <div>
+              <div className='editinfo'>
                 <label htmlFor="ring">
                   My Ring, aka what I'm bringing with me on this journey:{" "}
                 </label>
@@ -89,7 +89,7 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
                 />
               </div>
 
-              <div>
+              <div className='editinfo'>
                 <label htmlFor="destination">My Destination: </label>
                 <br />
                 <TextField

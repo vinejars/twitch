@@ -70,7 +70,7 @@ const Login: React.FunctionComponent<LoginProps> = (props) => {
         <br/>
 				<button className='mimic-button'>Log In!</button><br/>
 				<div className='loginlink'>
-					If you'd like to join the party go to:{' '}
+					If you'd like to join <br/>the party go to:
 					<Link to='/signup'>Sign Up</Link>
 				</div>
 			</form>
