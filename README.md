@@ -49,8 +49,70 @@
  <h3> Controller </h3>
  
  <p> The Controller consists of the routes on my Express backend and the functions performing axios calls to them in the client/components/callFunctions folder </p>
+ 
+ <h1> Views </h1>
 
+ <p> Though I didn't get as much time to work on styling as I would have liked due to my work schedule blowing up this past week, I prioritized responsive, accessible design. Each view was made with the intent to be simple, beautiful, and useable on both web and mobile devices. A user can navigate to the feed or their profile page via tab navigation at the top, which also renders a link which will log a user out and send them back to the login page. On both the Profile Page component and the AllPosts component there's a hovering button that renders the Create Post view. I wanted the navigation to be simple, but have a bit of flair. I would have really loved to be able to use Material-UI's focus options to make my site more accessible, but that's on the list of things I'm planning on doing to make this project better in the future.</p>
 
+ <details>
+ <summary> Main Page </summary>
+
+ <h2> Web View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/221088663_921530861893935_8668663023445339612_n.png?_nc_cat=108&ccb=1-3&_nc_sid=ae9488&_nc_ohc=D-drdgd7iMYAX_GhS2h&_nc_ht=scontent-lga3-2.xx&oh=dea8a1bac2595ffd2fbebb90d5388c01&oe=6127F5D2' width=400/>
+<br/>
+ <h2> Mobile View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/227423362_1837494736421637_2339359514230761652_n.png?_nc_cat=103&ccb=1-3&_nc_sid=ae9488&_nc_ohc=elUQQxG-DVIAX-cmKvr&_nc_ht=scontent-lga3-2.xx&oh=b4aab1c9ed7b679f4ba2fe363ad9eeba&oe=6129D1CF' width=400/>
+ </details>
+ 
+  <details>
+ <summary> Login </summary>
+
+ <h2> Web View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/222028065_264217988846496_404413582006684192_n.png?_nc_cat=105&ccb=1-3&_nc_sid=ae9488&_nc_ohc=EMSMKC3TpvUAX9Cgu3v&_nc_ht=scontent-lga3-2.xx&oh=5e06562e8f855bdf45e36301ca3b5b17&oe=612908E2' width=400/>
+<br/>
+ <h2> Mobile View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/225978109_266072938613183_3345038121094634817_n.png?_nc_cat=104&ccb=1-3&_nc_sid=ae9488&_nc_ohc=IExvD_4xdZEAX8QSKVV&_nc_ht=scontent-lga3-2.xx&oh=577a49de940d6679087b4938e54e9af4&oe=6129F90A' width=400/>
+ </details>
+ 
+   <details>
+ <summary> SignUp </summary>
+
+ <h2> Web View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/226819262_219963890133047_4063639704102641011_n.png?_nc_cat=110&ccb=1-3&_nc_sid=ae9488&_nc_ohc=ec1BSh4XbL0AX_pOswU&_nc_ht=scontent-lga3-2.xx&oh=8f371858c404657377e41cc49c23913c&oe=6127A42C' width=400/>
+<br/>
+ <h2> Mobile View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/221885418_217707536941779_787708607465941015_n.png?_nc_cat=104&ccb=1-3&_nc_sid=ae9488&_nc_ohc=t_k0XlnffjcAX8Py5S4&_nc_ht=scontent-lga3-2.xx&oh=8a400a684ce2aba4bc1ed7cd7a2b8a3a&oe=6127B7E4' width=400/>
+ </details>
+ 
+   <details>
+ <summary> Fellowship Feed (All Posts)  </summary>
+
+ <h2> Web View </h2>
+ <img src='https://i.ibb.co/sJkzL2T/Screen-Shot-2021-07-29-at-10-44-45-AM.png' width=400/>
+<br/>
+ <h2> Mobile View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/225583521_1326614561065616_5513772455406534008_n.png?_nc_cat=104&ccb=1-3&_nc_sid=ae9488&_nc_ohc=bbcLqUsnfUsAX8qlb6-&tn=vy1n5qN1gd6TtJt8&_nc_ht=scontent-lga3-2.xx&oh=1dc70ab0081d914c2d878d4c6e479f79&oe=6129F50A' width=400/>
+ </details>
+ 
+ <details>
+ <summary> Profile Page  </summary>
+
+ <h2> Web View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/226998308_358404842520145_4962834959225934496_n.png?_nc_cat=102&ccb=1-3&_nc_sid=ae9488&_nc_ohc=N5S1WNpfmWIAX8YYS93&_nc_ht=scontent-lga3-2.xx&oh=5e12326c0c30cd4c6def85b40ee57186&oe=6126B7DA' width=400/>
+<br/>
+ <h2> Mobile View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/226799420_342291227444560_6626012985248245734_n.png?_nc_cat=105&ccb=1-3&_nc_sid=ae9488&_nc_ohc=KlCYg2FTf-8AX_zdwkG&tn=vy1n5qN1gd6TtJt8&_nc_ht=scontent-lga3-2.xx&oh=c7234c9a814d8b47881b81971d280e51&oe=6126AE9F' width=400/>
+ </details>
+ 
+  <details>
+ <summary> Create Post  </summary>
+
+ <h2> Web View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/227423362_365672948289660_8529095413544944052_n.png?_nc_cat=105&ccb=1-3&_nc_sid=ae9488&_nc_ohc=07WpD-_yNGQAX8bf5JA&_nc_ht=scontent-lga3-2.xx&oh=f671ee915b24e5ac45780754944e293c&oe=61271D7C' width=400/>
+<br/>
+ <h2> Mobile View </h2>
+ <img src='https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/225749667_189480713228088_8246517932490776386_n.png?_nc_cat=104&ccb=1-3&_nc_sid=ae9488&_nc_ohc=mldZZgep_OEAX_ULHDQ&_nc_ht=scontent-lga3-2.xx&oh=2a9ae3433324b869add7d9002375ba35&oe=6128E3AB' width=400/>
+ </details>
 
 <h2> APIs: </h2>
 
