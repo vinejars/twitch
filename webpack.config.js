@@ -1,5 +1,5 @@
 const path = require("path");
-const webpack = require('webpack')
+const webpack = require("webpack");
 
 module.exports = {
   entry: ["babel-polyfill", "./client/index.tsx"],
@@ -30,15 +30,16 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
     ],
-  },  
+  },
   plugins: [
     new webpack.DefinePlugin({
-  'process.env.FIREBASE_API_KEY': `"${process.env.FIREBASE_API_KEY}"`,
-  'process.env.FIREBASE_AUTH_DOMAIN': `"${process.env.FIREBASE_AUTH_DOMAIN}"`,
-  'process.env.FIREBASE_PROJECT_ID': `"${process.env.FIREBASE_PROJECT_ID}"`,
-  'process.env.FIREBASE_STORAGE_BUCKET': `"${process.env.FIREBASE_STORAGE_BUCKET}"`,
-  'process.env.FIREBASE_MESSAGING_SENDERID': `"${process.env.FIREBASE_MESSAGING_SENDERID}"`,
-   'process.env.FIREBASE_APP_ID': `"${process.env.FIREBASE_APP_ID}"`
-})
-  ]
+      "process.env.FIREBASE_API_KEY": `"${process.env.FIREBASE_API_KEY}"`,
+      "process.env.FIREBASE_AUTH_DOMAIN": `"${process.env.FIREBASE_AUTH_DOMAIN}"`,
+      "process.env.FIREBASE_PROJECT_ID": `"${process.env.FIREBASE_PROJECT_ID}"`,
+      "process.env.FIREBASE_STORAGE_BUCKET": `"${process.env.FIREBASE_STORAGE_BUCKET}"`,
+      "process.env.FIREBASE_MESSAGING_SENDERID": `"${process.env.FIREBASE_MESSAGING_SENDERID}"`,
+      "process.env.FIREBASE_APP_ID": `"${process.env.FIREBASE_APP_ID}"`,
+      "process.env.LOTR_KEY": `"${process.env.LOTR_KEY}"`,
+    }),
+  ],
 };

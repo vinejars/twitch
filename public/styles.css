@@ -1,8 +1,8 @@
 Navbar styling */ #navcontain {
-	display: flex;
-	flex-direction: row;
-	align-content: space-around;
-	justify-items: center;
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  justify-items: center;
 }
 
 /* {

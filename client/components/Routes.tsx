@@ -44,7 +44,6 @@ const Routes: React.FunctionComponent = (props) => {
           <AllPosts user={user} setUser={setUser} />
         </Route>
       </Switch>
-
     </div>
   );
 };
