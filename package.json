@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"dependencies": {
 		"@material-ui/core": "^4.12.2",
+		"@material-ui/icons": "^4.11.2",
 		"@types/bluebird": "^3.5.36",
 		"@types/firebase": "^3.2.1",
 		"@types/material-ui": "^0.21.9",

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import firebase from '../config/firebase';
 import { UserType } from './callFunctions/singleUser';
-import { Tabs, Tab, AppBar } from '@material-ui/core';
+import { Tabs, Tab, AppBar, Button } from '@material-ui/core';
 
 interface NavProps {
 	user: UserType;
@@ -10,7 +10,8 @@ interface NavProps {
 }
 
 const MainNav: React.FunctionComponent<NavProps> = (props) => {
-	console.log(props);
+	const [value, setValue] = React.useState<number>(0);
+
 	const history = useHistory();
 	const logout = () => {
 		firebase
@@ -29,15 +30,20 @@ const MainNav: React.FunctionComponent<NavProps> = (props) => {
 		history.push('/login');
 	};
 
+	const handleChange = (event: any, newValue: number) => {
+    setValue(newValue);
+  };
+
 	return (
 		<div>
 			{props.user ? (
 				<div>
 					<nav id='navcontain'>
-						<Link to='/gallery'> The Fellowship Feed </Link>
-						<Link to='/add'> Add Post </Link>
-						<Link to={`/user/${props.user.id}`}> My Journey </Link>
-						<button onClick={logout}> Logout </button>
+					<Tabs value={value} onChange={handleChange}>
+						<Tab label='The Fellowship Feed' onClick={()=> history.push(`/gallery`)}/> 
+						<Tab label='My Journey' onClick={()=> history.push(`/user/${props.user.id}`)}/> 
+						<Tab label='Logout' onClick={logout}/> 
+						</Tabs>
 					</nav>
 				</div>
 			) : null}

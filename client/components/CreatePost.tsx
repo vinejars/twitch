@@ -4,7 +4,7 @@ import { createPost } from './callFunctions/posts';
 import { UserType } from './callFunctions/singleUser';
 import MainNav from './MainNav';
 import { useHistory } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import { TextField, Button } from '@material-ui/core';
 
 interface CreateProps {
 	user: UserType;
@@ -51,13 +51,21 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
 	return (
 		<div>
 			<MainNav user={props.user} setUser={props.setUser} />
+
 			<input type='file' onChange={(e) => onChange(e)} />
-			<textarea
+
+			{/* <textarea
 				name='postinfo'
 				maxLength={250}
 				onChange={(event) => setText(event.target.value)}
-			></textarea>
-			<Button variant="contained" color="primary" onClick={(e) => handleClick(e)}> Upload </Button>
+			></textarea> */}
+			<TextField
+				id='standard-basic'
+				label='Standard'
+				onChange={(event) => setText(event.target.value)}
+			/>
+
+			<button onClick={(e) => handleClick(e)}>Upload</button>
 		</div>
 	);
 };
