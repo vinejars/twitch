@@ -4,6 +4,7 @@ import { createPost } from './callFunctions/posts';
 import { UserType } from './callFunctions/singleUser';
 import MainNav from './MainNav';
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 interface CreateProps {
 	user: UserType;
@@ -56,7 +57,7 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
 				maxLength={250}
 				onChange={(event) => setText(event.target.value)}
 			></textarea>
-			<button onClick={(e) => handleClick(e)}> Upload </button>
+			<Button variant="contained" color="primary" onClick={(e) => handleClick(e)}> Upload </Button>
 		</div>
 	);
 };
