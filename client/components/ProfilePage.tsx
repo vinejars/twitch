@@ -116,7 +116,6 @@ const ProfilePage: React.FunctionComponent<ProfileProps> = (props) => {
 				)}
 				{!posts ? null : (
 					<div className='postlist'>
-						<h3 id='journey'> My Journey: </h3>
 						<ImageList rowHeight={200} cols={3}>
 							{posts.map((post: PostType) => (
 								<ImageListItem key={post.id}>

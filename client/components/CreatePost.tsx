@@ -4,7 +4,7 @@ import { createPost } from "./callFunctions/posts";
 import { UserType } from "./callFunctions/singleUser";
 import MainNav from "./MainNav";
 import { useHistory } from "react-router-dom";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Input } from "@material-ui/core";
 
 interface CreateProps {
   user: UserType;
@@ -23,7 +23,7 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
     history.push(`/gallery`);
   };
 
-  const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = async (e: any) => {
     if (!e.target.files) {
       //handle error
       throw new Error("no file chosen!");
@@ -51,16 +51,38 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
   return (
     <div>
       <MainNav user={props.user} setUser={props.setUser} />
+    <div id='add-contain'>
+  <div id='add-flex'>
+  <h3> Choose A Post! </h3>
+      <Input type="file" onChange={(e) => onChange(e)} />
+      <br/><br/>
 
-      <input type="file" onChange={(e) => onChange(e)} />
+      <h3>Tell Us Your Story!</h3>
 
       <TextField
+      variant='filled'
+        multiline={true}
         id="standard-basic"
-        label="Standard"
+        label="What's happening?"
         onChange={(event) => setText(event.target.value)}
       />
+      <br/>
+      <br/>
 
-      <button onClick={(e) => handleClick(e)}>Upload</button>
+
+
+     <Button
+							variant='contained'
+							className='edit-button'
+							style={{
+								margin: '0 auto',
+								display: 'flex',
+								backgroundColor: 'black',
+								color: '#f6fff2',
+							}}
+						 onClick={(e) => handleClick(e)}>Voila!</Button>
+             </div>
+    </div>
     </div>
   );
 };
