@@ -1,6 +1,55 @@
 # SpeakFriend
 
-<p> An LOTR social media app made for <img alt="Twitch" src="https://img.shields.io/badge/TWITCH-%239146FF.svg?style=for-the-badge&logo=Twitch&logoColor=white"/> </p>
+<p> An LOTR social media app made for <img alt="Twitch" src="https://img.shields.io/badge/TWITCH-%239146FF.svg?style=for-the-badge&logo=Twitch&logoColor=white"/> that allows a user to sign up and login, upload images, delete their images, edit their profile, and see all their friends' images. </p>
+
+[HOSTED HERE!](https://speakfriend.herokuapp.com/)
+
+<h1> High Level Architectural Overview: </h1>
+<h3> Database/Models </h3>
+<p> The SpeakFriend database is a Postgres database utilizing Sequelize and is comprised of 4 models: </p>
+
+* Users 
+* Posts 
+* ProfileInfo
+
+<p> There is a one to many relationship between users and posts, wherein each post instance has a userId, and one-to-one relationship between users and profile info.
+ 
+
+<h1> MVC Architectural Design Pattern </h1>
+<h2> This project utilizes the MVC (Models-Views-Controller) pattern. </h2>
+<h3> Models: </h3>
+<p>The Models are my models highlighted above, which can be found in the server/db folder, each in their own file, which a separate folder to list out their Typescript attributes.</p>
+<h3> Views: </h3>
+<p> The Views are comprised of all my components in the client/components folder
+<details>
+  <summary> Gone into in more depth here </summary>
+  
+   <h3> Components </h3>
+  
+- Routes
+> the component serving up all routes, rendered in index.tsx <br/>
+- Main 
+> the first component a user sees when entering Speak Friend. Displays a user greeting and prompt to log in or sign up. <br/>
+- LoginNav & MainNav
+> 2 Nav bar components to be rendered depending on whether user is logged in or not. <br/>
+- Fail 
+> an Error handling communication component that's rendered on both Login & Signup
+- Login & Signup 
+> Components displaying forms that use Firebase auth to sign a user up or log them in
+- Quote <br/>
+> A reusable component that utilizes The One API to display a random LOTR quote and it's author on each refresh <br/>
+- AllPosts <br/>
+> A component that renders all posts belonging to all users and the Quote component
+- Profile Page <br/>
+> a component that renders the logged in user's posts and profile info, with a link to the edit component and buttons to delete a post permanently <br/>
+- EditAbout <br/>
+> a component that displays a form so a user can edit their Profile Info. <br/>
+  </details>
+  
+ <h3> Controller </h3>
+ 
+ <p> The Controller consists of the routes on my Express backend and the functions performing axios calls to them in the client/components/callFunctions folder </p>
+
 <h2> APIs: </h2>
 
 - [The One API](https://the-one-api.dev/)
