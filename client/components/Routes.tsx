@@ -14,7 +14,7 @@ const Routes: React.FunctionComponent = (props) => {
   const [user, setUser] = useState<UserType>({});
 
   return (
-    <div>
+    <div id="everything">
       <Switch>
         <Route exact path="/login">
           <Login user={user} setUser={setUser} />

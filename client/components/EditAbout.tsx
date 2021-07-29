@@ -3,6 +3,7 @@ import { UserType, getInfo, editAbout } from "./callFunctions/singleUser";
 import { PostType, AboutType } from "./callFunctions/posts";
 import MainNav from "./MainNav";
 import { useHistory } from "react-router-dom";
+import { TextField, Button } from "@material-ui/core";
 
 interface EditProps {
   user: UserType;
@@ -48,39 +49,75 @@ const EditAbout: React.FunctionComponent<EditProps> = (props) => {
   }
 
   return (
-    <div>
+    <div id="edit-everything">
       <MainNav user={props.user} setUser={props.setUser} />
       {info ? (
-        <div>
+        <div >
           <form onSubmit={handleSubmit}>
-            <label htmlFor="aboutme">About Me: </label>
-            <input
-              type="text"
-              name="aboutme"
-              id="aboutme"
-              defaultValue={info.aboutMe}
-              onChange={(event) => setAbout(event.target.value)}
-            />
+            <div id="edit-flex">
+              <div>
+                <label htmlFor="aboutme">About Me: </label>
+                <br />
+                <TextField                
+                className='text-field'
+                variant='filled'
+                multiline={true}
+                  id="ring"
+                  label="About Me"
+                  type="text"
+                  name="aboutme"
+                  defaultValue={info.aboutMe}
+                  onChange={(event: any) => setAbout(event.target.value)}
+                />
+              </div>
 
-            <label htmlFor="ring">
-              My Ring, aka what I'm bringing with me on this journey:{" "}
-            </label>
-            <input
-              type="text"
-              name="ring"
-              defaultValue={info.ring}
-              onChange={(event) => setRing(event.target.value)}
-            />
+              <div>
+                <label htmlFor="ring">
+                  My Ring, aka what I'm bringing with me on this journey:{" "}
+                </label>
+                <br />
+                <TextField
+                className='text-field'
+                variant='filled'
+                 multiline={true}
+                  id="ring"
+                  label="Ring"
+                  type="text"
+                  name="ring"
+                  defaultValue={info.ring}
+                  onChange={(event: any) => setRing(event.target.value)}
+                />
+              </div>
 
-            <label htmlFor="destination">My Destination: </label>
-            <input
-              type="text"
-              name="destination"
-              id="destination"
-              defaultValue={info.destination}
-              onChange={(event) => setDestination(event.target.value)}
-            />
-            <button type="submit"> Submit </button>
+              <div>
+                <label htmlFor="destination">My Destination: </label>
+                <br />
+                <TextField
+                className='text-field'
+                variant='filled'
+                 multiline={true}
+                  id="destination"
+                  label="My Destination"
+                  type="text"
+                  name="destination"
+                  defaultValue={info.destination}
+                  onChange={(event: any) => setDestination(event.target.value)}
+                />
+              </div>
+            </div>
+
+            <Button
+              variant="contained"
+              type="submit"
+              style={{
+                margin: "0 auto",
+                display: "flex",
+                backgroundColor: "black",
+                color: "#f6fff2",
+              }}
+            >
+              Submit
+            </Button>
           </form>
         </div>
       ) : null}

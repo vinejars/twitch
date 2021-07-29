@@ -54,11 +54,6 @@ const CreatePost: React.FunctionComponent<CreateProps> = (props) => {
 
       <input type="file" onChange={(e) => onChange(e)} />
 
-      {/* <textarea
-				name='postinfo'
-				maxLength={250}
-				onChange={(event) => setText(event.target.value)}
-			></textarea> */}
       <TextField
         id="standard-basic"
         label="Standard"

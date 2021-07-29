@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import firebase from "../config/firebase";
 import { UserType } from "./callFunctions/singleUser";
-import { Tabs, Tab, AppBar, Button } from "@material-ui/core";
+import { Tabs, Tab, Button } from "@material-ui/core";
 
 interface NavProps {
   user: UserType;
@@ -39,16 +39,22 @@ const MainNav: React.FunctionComponent<NavProps> = (props) => {
       {props.user ? (
         <div>
           <nav id="navcontain">
-            <Tabs value={value} onChange={handleChange}>
+            <Tabs
+              TabIndicatorProps={{ style: { display: "none" } }}
+              value={value}
+              onChange={handleChange}
+            >
               <Tab
                 label="The Fellowship Feed"
                 onClick={() => history.push(`/gallery`)}
+                style={{ color: "white" }}
               />
               <Tab
                 label="My Journey"
                 onClick={() => history.push(`/user/${props.user.id}`)}
+                style={{ color: "white" }}
               />
-              <Tab label="Logout" onClick={logout} />
+              <Tab label="Logout" onClick={logout} style={{ color: "white" }} />
             </Tabs>
           </nav>
         </div>

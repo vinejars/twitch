@@ -1,10 +1,181 @@
-Navbar styling */ #navcontain {
-  display: flex;
-  flex-direction: row;
-  align-content: space-around;
-  justify-items: center;
+/* Everything Styling*/
+
+body {
+	background-image: radial-gradient(
+			circle,
+			rgba(38, 63, 31, 0.95) 0%,
+			rgba(49, 29, 8, 0.95) 100%
+		),
+		url('https://external-preview.redd.it/LtYa42bTVRgj8AEI6FIhHS9JCF90hSDreQoxC7kRS54.jpg?auto=webp&s=552bad3904d028d3c65d0261a151189564910fed');
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
 }
 
-/* {
-  background-color: #c3c9c5;
-} */
+.mimic-button {
+	background-color: #000000;
+	border-radius: 15px;
+	border: 1px solid #000000;
+	color: #ffffff;
+	font-size: 17px;
+	padding: 10px 20px;
+  font-family: 'Crimson Text', serif;
+  margin-bottom: 10px;
+}
+
+.mimic-button:hover {
+	box-shadow: 0 0 10px #666666;
+}
+
+/*Main styling*/
+
+#main-heading {
+	box-shadow: inset 0 0 20px #cfb53b;
+	border-color: #cfb53b;
+	border-width: thin;
+	border-radius: 50%;
+	width: 60%;
+	height: 80vh;
+	text-align: center;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+
+#main-heading h1 {
+	display: inline-block;
+	margin-top: 100px;
+	color: #ffffff;
+	text-shadow: 0 0 10px #cfb53b;
+}
+
+#main-heading h1 {
+}
+
+#main-heading h2 {
+	color: #ffffff;
+}
+
+/*Navbar styling */
+
+#navcontain {
+	display: flex;
+	flex-direction: row;
+	align-content: space-around;
+	justify-items: center;
+}
+
+/* Quote Styling */
+
+#quote-info {
+	text-align: center;
+	width: 50%;
+	word-wrap: break-word;
+	background-image: url('https://lh3.googleusercontent.com/proxy/2eL--ahoNe6PgxESsg2WwIilwTHJQ0FB6_7VEQJ8Gx-mfBEf8XhpwIHqN5pu8KmTAYTo-Zeqz9ab8Kgp8ZnjEmQnBSig0YMVEuBmdn_E6KyzGGgh8i4qI1UNUPk9_jMCjtCgZasyWNTfwK_c0G67TXCYVH4e62A');
+	background-size: 100% 100%;
+}
+
+#quote {
+	display: inline-block;
+	width: 40%;
+}
+
+/* Edit About Me Styling*/
+
+#edit-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+#edit-everything {
+	height: 100%;
+  color: white;
+}
+
+.text-field{
+  color: white;
+}
+
+/*Profile Page Styling*/
+
+.aboutme {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+
+.about-info {
+	width: 400px;
+	word-wrap: break-word;
+	background-image: url('https://lh3.googleusercontent.com/proxy/2eL--ahoNe6PgxESsg2WwIilwTHJQ0FB6_7VEQJ8Gx-mfBEf8XhpwIHqN5pu8KmTAYTo-Zeqz9ab8Kgp8ZnjEmQnBSig0YMVEuBmdn_E6KyzGGgh8i4qI1UNUPk9_jMCjtCgZasyWNTfwK_c0G67TXCYVH4e62A');
+	background-size: 100% 100%;
+}
+
+.about-info p {
+	display: inline-block;
+	width: 350px;
+}
+
+.delete-button {
+	color: white;
+}
+
+.image-label {
+	text-align: center;
+}
+
+.edit-button {
+	margin-top: 10px;
+	background-color: #567a43;
+}
+
+#quote-flex{
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+}
+
+/*Login Styling*/
+
+.login-outside {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.login-outside h1 {
+	color: #ffffff;
+	text-shadow: 0 0 10px #cfb53b;
+}
+
+.loginlink {
+	width: 30%;
+	background-image: url('https://lh3.googleusercontent.com/proxy/2eL--ahoNe6PgxESsg2WwIilwTHJQ0FB6_7VEQJ8Gx-mfBEf8XhpwIHqN5pu8KmTAYTo-Zeqz9ab8Kgp8ZnjEmQnBSig0YMVEuBmdn_E6KyzGGgh8i4qI1UNUPk9_jMCjtCgZasyWNTfwK_c0G67TXCYVH4e62A');
+	background-size: 100% 100%;
+	height: 50px;
+	text-align: center;
+	color: black;
+}
+
+.loginlink p {
+	margin-top: 5px;
+}
+
+/*All Posts Styling*/
+
+#allflex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
