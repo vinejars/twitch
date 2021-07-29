@@ -72,17 +72,17 @@ const ProfilePage: React.FunctionComponent<ProfileProps> = (props) => {
 						<div className='aboutme' key={info.id}>
 							<div className='about-info'>
 								<h3>About Me: </h3>
-								<br />
+								
 								<p> {info.aboutMe} </p>
 							</div>
 							<div className='about-info'>
 								<h3> My Ring: </h3>
-								<br />
+								
 								<p> {info.ring} </p>
 							</div>
 							<div className='about-info'>
 								<h3> My Destination: </h3>
-								<br />
+								
 								<p> {info.destination} </p>
 							</div>
 							<div>
